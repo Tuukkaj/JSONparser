@@ -6,6 +6,7 @@ class JSONItem extends JSONObject {
         this.data = data;
     }
 
+    @Override
     public String getKey() {
         return key;
     }
@@ -19,7 +20,8 @@ class JSONItem extends JSONObject {
         data = null;
     }
 
+    @Override
     public String buildToString() {
-        return key +  " : " + data;
+        return key +  ": " + data;
     }
 }
