@@ -19,4 +19,13 @@ public class JSONWriter {
             return bw;
         }
     }
+
+    public void print(JSONFileData data) {
+        StringBuilder b = new StringBuilder("{\n");
+
+        b.append(data.buildToString());
+
+        b.append("}\n");
+        System.out.println(b.toString());
+    }
 }
