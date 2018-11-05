@@ -7,8 +7,12 @@ class JSONFileData {
         map = new HashMap<>();
     }
 
-    public void addItem(JSONObject data) {
+    public void addItem(JSONItem data) {
         map.put(data.getKey(), data.getData());
+    }
+
+    public void addArray(JSONArray array) {
+        map.put(array.getKey(), array.buildToString());
     }
 
     public void remove(String key) {
@@ -17,7 +21,6 @@ class JSONFileData {
 
     public String buildToString() {
         StringBuilder b = new StringBuilder();
-
         for(String s: map.keySet()) {
             b.append("\t" + s + " : " + map.get(s) + ",\n");
 
