@@ -17,9 +17,13 @@ public class JSONWriter {
     }
 
     private BufferedWriter createBufferedReader() throws IOException {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("resources/test.json"))){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("test.json"))){
             return bufferedWriter;
         }
+    }
+
+    public void write(JSONObject jsonObject) {
+        jsonObject.buildToString();
     }
 
     public void write(String line) {
