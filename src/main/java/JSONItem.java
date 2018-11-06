@@ -22,6 +22,6 @@ class JSONItem extends JSONObject {
 
     @Override
     public String buildToString() {
-        return key +  ": " + data;
+        return ": " + data;
     }
 }
