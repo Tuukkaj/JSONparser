@@ -2,7 +2,6 @@ import java.util.HashMap;
 
 public class JSONObject extends JSONComponent {
     private HashMap<String, Object> table;
-    private String key;
 
     public JSONObject() {
         table = new HashMap<>();
@@ -23,14 +22,6 @@ public class JSONObject extends JSONComponent {
 
     public void remove(String key) {
         table.remove(key);
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
     }
 
     @Override

@@ -31,6 +31,6 @@ class JSONParser {
 
         writer = new JSONWriter();
         writer.print(fd1);
-        //writer.print(fd);
+        writer.print(fd);
     }
 }
