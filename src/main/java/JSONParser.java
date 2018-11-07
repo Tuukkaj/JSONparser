@@ -1,3 +1,5 @@
+import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 class JSONParser {
@@ -33,7 +35,7 @@ class JSONParser {
         array.addAndCreateJSONArrayComponent("homephone", homePhone);
         array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
         fd.add(array);
-        writer = new JSONWriter(fd);
+        writer = new JSONWriter(new File("JSONWritingTest/test.json"),fd);
         //writer.write(fd);
         writer.print(fd);
     }
