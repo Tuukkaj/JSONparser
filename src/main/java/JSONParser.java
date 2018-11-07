@@ -20,12 +20,18 @@ class JSONParser {
         fd.add(object);
 
         JSONArray array = new JSONArray("PhoneNumbers");
-        ArrayList<JSONItem> arrayForJSON = new ArrayList<>();
-        arrayForJSON.add(new JSONItem("home", 1233123512));
-        arrayForJSON.add(new JSONItem("work", 1493481923));
-        arrayForJSON.add(new JSONItem("school", 59452342));
-        arrayForJSON.add(new JSONItem("gym", 927381273));
-        array.addAndCreateJSONArrayComponent("Phone", arrayForJSON);
+        ArrayList<JSONItem> mobilePhone = new ArrayList<>();
+        mobilePhone.add(new JSONItem("type", "mobile"));
+        mobilePhone.add(new JSONItem("number", 987654321));
+        ArrayList<JSONItem> homePhone = new ArrayList<>();
+        homePhone.add(new JSONItem("type", "home"));
+        homePhone.add(new JSONItem("number", 12123123));
+        ArrayList<JSONItem> workPhone = new ArrayList<>();
+        workPhone.add(new JSONItem("type", "work"));
+        workPhone.add(new JSONItem("number", 654123));
+        array.addAndCreateJSONArrayComponent("workphone", workPhone);
+        array.addAndCreateJSONArrayComponent("homephone", homePhone);
+        array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
         fd.add(array);
         writer = new JSONWriter();
         writer.print(fd);
