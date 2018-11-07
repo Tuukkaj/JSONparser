@@ -12,7 +12,7 @@ class JSONParser {
         fd.addItem(new JSONItem("alive", true));
         fd.addItem(new JSONItem("willToLive", null));
 
-        JSONArray array = new JSONArray("emailAddresses");
+        JSONObject array = new JSONObject("emailAddresses");
         array.add(new JSONItem("school", "gkjdfa.gajgfk@tamk.fi"));
         array.add(new JSONItem("personal", "hadgfjas.fadsjdfas@hotmail.com"));
         fd.addArray(array);
