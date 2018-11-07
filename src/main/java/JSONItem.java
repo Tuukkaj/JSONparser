@@ -22,6 +22,10 @@ class JSONItem extends JSONObject {
 
     @Override
     public String buildToString() {
-        return ": " + data;
+        if (data instanceof String) {
+            return ": \"" + data+"\"";
+        } else {
+            return ": " + data;
+        }
     }
 }
