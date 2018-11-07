@@ -1,12 +1,15 @@
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 
 public class JSONWriter {
     private BufferedWriter bufferedWriter;
+    private File currentFile;
 
-    public JSONWriter(JSONFileData data) {
+    public JSONWriter(File file, JSONFileData data) {
+        this.currentFile = file;
         try (FileWriter fileWriter = new FileWriter("JSONWritingTests/test.json")){
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.append(buildToFileText(data));
@@ -14,6 +17,10 @@ public class JSONWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void changeCurrentFile(File file) {
+        currentFile = file;
     }
 
     public String buildToFileText(JSONFileData file) {
