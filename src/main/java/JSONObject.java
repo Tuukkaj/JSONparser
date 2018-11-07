@@ -35,9 +35,9 @@ public class JSONObject extends JSONComponent {
 
     @Override
     public String buildToString() {
-        StringBuilder b = new StringBuilder(" {\n");
+        StringBuilder b = new StringBuilder(": {\n");
         for(String s: table.keySet()) {
-            b.append("\t\""+s +"\""+ table.get(s) + ",\n");
+            b.append("\t\t\""+s +"\""+ table.get(s) + ",\n");
         }
 
         b.append("\t}");
