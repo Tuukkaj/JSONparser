@@ -21,9 +21,15 @@ class JSONFileData {
 
     public String buildToString() {
         StringBuilder b = new StringBuilder();
-        for(String s: map.keySet()) {
-            b.append("\t" + s + map.get(s) + ",\n");
+        int i = 0;
 
+        for(String s: map.keySet()) {
+            if (i >= map.size()-1) {
+                b.append("\t\"" + s +"\""+ map.get(s) + "\n");
+            } else {
+                b.append("\t\"" + s +"\""+ map.get(s) + ",\n");
+            }
+            i++;
         }
 
         return b.toString();
