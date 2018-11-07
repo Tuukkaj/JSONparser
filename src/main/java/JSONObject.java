@@ -1,14 +1,14 @@
 import java.util.HashMap;
 
-public class JSONArray extends JSONComponent {
+public class JSONObject extends JSONComponent {
     private HashMap<String, Object> table;
     private String key;
 
-    public JSONArray() {
+    public JSONObject() {
         table = new HashMap<>();
     }
 
-    public JSONArray(String key) {
+    public JSONObject(String key) {
         table = new HashMap<>();
         setKey(key);
     }
