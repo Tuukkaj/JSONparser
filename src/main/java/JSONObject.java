@@ -24,6 +24,10 @@ public class JSONObject extends JSONComponent {
         table.remove(key);
     }
 
+    public HashMap<String, Object> getData() {
+        return table;
+    }
+
     @Override
     public String buildToString() {
         StringBuilder b = new StringBuilder(": {\n");
