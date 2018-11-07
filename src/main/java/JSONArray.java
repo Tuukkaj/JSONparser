@@ -25,7 +25,7 @@ public class JSONArray extends JSONComponent{
     public String buildToString() {
         StringBuilder builder = new StringBuilder( ": [\n");
         list.forEach((JSONArrayComponent) -> builder.append(JSONArrayComponent.buildToString()));
-        builder.append("\t],");
+        builder.append("\t]");
 
         return builder.toString();
     }

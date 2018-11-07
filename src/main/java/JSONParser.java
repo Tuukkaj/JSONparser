@@ -26,11 +26,8 @@ class JSONParser {
         arrayForJSON.add(new JSONItem("school", 59452342));
         arrayForJSON.add(new JSONItem("gym", 927381273));
         array.addAndCreateJSONArrayComponent("Phone", arrayForJSON);
-        JSONFileData fd1 = new JSONFileData();
-        fd1.addArray(array);
-
+        fd.addArray(array);
         writer = new JSONWriter();
-        writer.print(fd1);
         writer.print(fd);
     }
 }
