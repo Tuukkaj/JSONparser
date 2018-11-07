@@ -1,4 +1,4 @@
-abstract class JSONObject {
+abstract class JSONComponent {
     /**
      * Key of the object in JSONFile.
      */
