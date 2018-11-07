@@ -1,8 +1,6 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 
-public class JSONArray extends JSONObject{
+public class JSONArray extends JSONComponent {
     private HashMap<String, Object> table;
     private String key;
 
