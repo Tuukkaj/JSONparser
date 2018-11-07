@@ -8,22 +8,25 @@ public class JSONWriter {
     private BufferedWriter bufferedWriter;
     private File currentFile;
 
-    public JSONWriter(File file, JSONFileData data) {
+    public JSONWriter(File file) {
         this.currentFile = file;
-        try (FileWriter fileWriter = new FileWriter("JSONWritingTests/test.json")){
-            bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.append(buildToFileText(data));
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void changeCurrentFile(File file) {
         currentFile = file;
     }
 
-    public String buildToFileText(JSONFileData file) {
+    public void write(JSONFileData fileData) {
+        try (FileWriter fileWriter = new FileWriter(currentFile)){
+            bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.append(buildToFileText(fileData));
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String buildToFileText(JSONFileData file) {
         StringBuilder builder = new StringBuilder("{\n");
 
         builder.append(file.buildToString());
@@ -34,11 +37,6 @@ public class JSONWriter {
     }
 
     public void print(JSONFileData file) {
-        StringBuilder b = new StringBuilder("{\n");
-
-        b.append(file.buildToString());
-
-        b.append("}\n");
-        System.out.println(b.toString());
+        System.out.println(buildToFileText(file));
     }
 }

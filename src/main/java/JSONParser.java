@@ -35,8 +35,12 @@ class JSONParser {
         array.addAndCreateJSONArrayComponent("homephone", homePhone);
         array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
         fd.add(array);
-        writer = new JSONWriter(new File("JSONWritingTest/test.json"),fd);
-        //writer.write(fd);
+        writer = new JSONWriter(new File("JSONWritingTests/test.json"));
+        writer.write(fd);
+        writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
+        writer.write(fd);
+        writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
+        writer.write(fd);
         writer.print(fd);
     }
 }
