@@ -2,7 +2,7 @@ abstract class JSONComponent {
     /**
      * Key of the object in JSONFile.
      */
-    String key;
+    private String key;
 
     /**
      * Builds JSONObjects data to String format.
@@ -14,5 +14,11 @@ abstract class JSONComponent {
      * Retuns key of the JSON Object.
      * @return key.
      */
-    abstract String getKey();
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

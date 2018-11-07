@@ -11,7 +11,11 @@ class JSONFileData {
         map.put(item.getKey(), item.buildToString());
     }
 
-    public void addArray(JSONObject array) {
+    public void addObject(JSONObject object) {
+        map.put(object.getKey(), object.buildToString());
+    }
+
+    public void addArray(JSONArray array) {
         map.put(array.getKey(), array.buildToString());
     }
 
