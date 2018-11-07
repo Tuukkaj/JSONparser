@@ -10,6 +10,10 @@ public class JSONArray extends JSONComponent{
         list = new ArrayList<>();
     }
 
+    public ArrayList<JSONArrayComponent> getData() {
+        return list;
+    }
+
     public void add(JSONArrayComponent component) {
             list.add(component);
     }
