@@ -6,5 +6,5 @@ JSON parser that can read and write JSON files. Projects second goal is to creat
 where you can save your shopping list using JSON file format.  
 
 Progress:
-Writer – In Progress
+Writer – In Progress.
 Reader – Not Started
