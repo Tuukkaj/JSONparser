@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class JSONParser {
     private static JSONReader reader;
     private static JSONWriter writer;
@@ -12,12 +14,23 @@ class JSONParser {
         fd.addItem(new JSONItem("alive", true));
         fd.addItem(new JSONItem("willToLive", null));
 
-        JSONObject array = new JSONObject("emailAddresses");
-        array.add(new JSONItem("school", "gkjdfa.gajgfk@tamk.fi"));
-        array.add(new JSONItem("personal", "hadgfjas.fadsjdfas@hotmail.com"));
-        fd.addArray(array);
+        JSONObject object = new JSONObject("emailAddresses");
+        object.add(new JSONItem("school", "gkjdfa.gajgfk@tamk.fi"));
+        object.add(new JSONItem("personal", "hadgfjas.fadsjdfas@hotmail.com"));
+        fd.addObject(object);
+
+        JSONArray array = new JSONArray("PhoneNumbers");
+        ArrayList<JSONItem> arrayForJSON = new ArrayList<>();
+        arrayForJSON.add(new JSONItem("home", 1233123512));
+        arrayForJSON.add(new JSONItem("work", 1493481923));
+        arrayForJSON.add(new JSONItem("school", 59452342));
+        arrayForJSON.add(new JSONItem("gym", 927381273));
+        array.addAndCreateJSONArrayComponent("Phone", arrayForJSON);
+        JSONFileData fd1 = new JSONFileData();
+        fd1.addArray(array);
 
         writer = new JSONWriter();
-        writer.print(fd);
+        writer.print(fd1);
+        //writer.print(fd);
     }
 }
