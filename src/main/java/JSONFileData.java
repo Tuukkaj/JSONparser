@@ -7,8 +7,8 @@ class JSONFileData {
         map = new HashMap<>();
     }
 
-    public void addItem(JSONItem data) {
-        map.put(data.getKey(), data.getData());
+    public void addItem(JSONItem item) {
+        map.put(item.getKey(), item.buildToString());
     }
 
     public void addArray(JSONArray array) {
@@ -22,7 +22,7 @@ class JSONFileData {
     public String buildToString() {
         StringBuilder b = new StringBuilder();
         for(String s: map.keySet()) {
-            b.append("\t" + s + " : " + map.get(s) + ",\n");
+            b.append("\t" + s + map.get(s) + ",\n");
 
         }
 

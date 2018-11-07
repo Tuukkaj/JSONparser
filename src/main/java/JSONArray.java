@@ -15,7 +15,7 @@ public class JSONArray extends JSONObject{
     }
 
     public void add(JSONItem item) {
-        table.put(item.getKey(), item.getData());
+        table.put(item.getKey(), item.buildToString());
     }
 
     public void add(String key, Object data) {
@@ -35,9 +35,9 @@ public class JSONArray extends JSONObject{
     }
 
     public String buildToString() {
-        StringBuilder b = new StringBuilder("{\n");
+        StringBuilder b = new StringBuilder(" {\n");
         for(String s: table.keySet()) {
-            b.append("\t"+s + ": " + table.get(s) + ",\n");
+            b.append("\t\""+s +"\""+ table.get(s) + ",\n");
         }
 
         b.append("\t}");
