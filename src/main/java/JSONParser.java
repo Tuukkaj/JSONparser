@@ -10,6 +10,7 @@ class JSONParser {
         fd.addItem(new JSONItem("city", "tre"));
         fd.addItem(new JSONItem("age", 21));
         fd.addItem(new JSONItem("alive", true));
+        fd.addItem(new JSONItem("willToLive", null));
 
         JSONArray array = new JSONArray("emailAddresses");
         array.add(new JSONItem("school", "gkjdfa.gajgfk@tamk.fi"));
