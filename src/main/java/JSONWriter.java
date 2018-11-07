@@ -6,24 +6,30 @@ import java.io.IOException;
 public class JSONWriter {
     private BufferedWriter bufferedWriter;
 
-    public JSONWriter() {
-        try {
-            bufferedWriter = createBufferedWriter(); 
+    public JSONWriter(JSONFileData data) {
+        try (FileWriter fileWriter = new FileWriter("JSONWritingTests/test.json")){
+            bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.append(buildToFileText(data));
+            bufferedWriter.flush();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    private BufferedWriter createBufferedWriter() throws IOException {
-        try (FileWriter fw = new FileWriter("src/main/resources/test.txt"); BufferedWriter bw = new BufferedWriter(fw)){
-            return bw;
-        }
+    public String buildToFileText(JSONFileData file) {
+        StringBuilder builder = new StringBuilder("{\n");
+
+        builder.append(file.buildToString());
+
+        builder.append("}\n");
+
+        return builder.toString();
     }
 
-    public void print(JSONFileData data) {
+    public void print(JSONFileData file) {
         StringBuilder b = new StringBuilder("{\n");
 
-        b.append(data.buildToString());
+        b.append(file.buildToString());
 
         b.append("}\n");
         System.out.println(b.toString());

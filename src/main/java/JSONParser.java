@@ -33,7 +33,8 @@ class JSONParser {
         array.addAndCreateJSONArrayComponent("homephone", homePhone);
         array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
         fd.add(array);
-        writer = new JSONWriter();
+        writer = new JSONWriter(fd);
+        //writer.write(fd);
         writer.print(fd);
     }
 }
