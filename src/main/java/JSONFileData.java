@@ -7,16 +7,8 @@ class JSONFileData {
         map = new HashMap<>();
     }
 
-    public void addItem(JSONItem item) {
-        map.put(item.getKey(), item.buildToString());
-    }
-
-    public void addObject(JSONObject object) {
-        map.put(object.getKey(), object.buildToString());
-    }
-
-    public void addArray(JSONArray array) {
-        map.put(array.getKey(), array.buildToString());
+    public void add(JSONComponent component) {
+        map.put(component.getKey(), component.buildToString());
     }
 
     public void remove(String key) {
