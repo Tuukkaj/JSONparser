@@ -1,10 +1,10 @@
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 class JSONFileData {
-    HashMap<String, Object> map;
+    LinkedHashMap<String, Object> map;
 
     public JSONFileData() {
-        map = new HashMap<>();
+        map = new LinkedHashMap<>();
     }
 
     public void add(JSONComponent component) {
