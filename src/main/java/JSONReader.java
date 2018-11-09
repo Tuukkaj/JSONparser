@@ -1,29 +1,20 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class JSONReader {
-    private BufferedReader bufferedReader;
-
-    public JSONReader() {
-        try {
-            bufferedReader = createBufferedReader();
-
+    public ArrayList<String> readFileToArrayList(File file) {
+        ArrayList<String> list = new ArrayList<>();
+        BufferedReader bufferedReader;
+        try (FileReader fileReader = new FileReader(file)){
+            bufferedReader =  new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-    }
 
-    private BufferedReader createBufferedReader() throws IOException {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("resources/test.json"))){
-            return bufferedReader;
-        }
+        return list;
     }
 }

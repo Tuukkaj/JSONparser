@@ -48,6 +48,10 @@ class JSONParser {
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
         writer.write(fd);
-        writer.print(fd);
+        //writer.print(fd);
+
+        reader = new JSONReader();
+        ArrayList<String> readerList = reader.readFileToArrayList(new File("JSONWritingTests/test.json"));
+        readerList.forEach(s -> System.out.println(s));
     }
 }
