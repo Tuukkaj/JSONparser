@@ -26,13 +26,13 @@ public class JSONReader {
             jsonFile = new JSONFileData();
 
             for(int i = 0; i < list.size(); i++) {
-
                 if (testLineJSONObject(list.get(i))) {
                    // System.out.println(list.get(i) + " &Object&");
                 } else if(testLineJSONArray(list.get(i))) {
-                    System.out.println(list.get(i) + " ?Array?");
+                    //System.out.println(list.get(i) + " ?Array?");
                 } else if(testLineJSONItem(list.get(i))) {
-                    //System.out.println(list.get(i) + " !Item!");
+                    jsonFile.add(lineToJSONItem(list.get(i)));
+                    System.out.println(list.get(i) + " !Item!");
                 }
             }
         }
@@ -40,10 +40,19 @@ public class JSONReader {
         return jsonFile;
     }
 
+    private JSONItem lineToJSONItem(String line) {
+        String replaceComma = line.substring(0,line.length()-1);
+        String[] splitLine = replaceComma.split(":");
+        /* TODO: Change so that splitLine[1] recognizes data to Object instead of String*/
+        return new JSONItem(splitLine[0].replace("\"", ""), splitLine[1]);
+    }
 
     private boolean testLineJSONItem(String line) {
         if(line.endsWith(",")) {
-            return true;
+            String replaceComma = line.substring(0,line.length()-1);
+            if(!replaceComma.endsWith("}") && !replaceComma.endsWith("]")) {
+                return true;
+            }
         }
 
         return false;
