@@ -19,6 +19,7 @@ class JSONParser {
         JSONObject object = new JSONObject("emailAddresses");
         object.add(new JSONItem("school", "gkjdfa.gajgfk@tamk.fi"));
         object.add(new JSONItem("personal", "hadgfjas.fadsjdfas@hotmail.com"));
+        object.add(new JSONItem("hobby", "asdjasjdh@aksjddadksj.fi"));
         fd.add(object);
 
         JSONArray array = new JSONArray("PhoneNumbers");
