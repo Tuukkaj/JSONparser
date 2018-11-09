@@ -57,7 +57,7 @@ public class JSONReader {
 
     private JSONArray linesToJSONArray(ArrayList<String> list, int currentLine) {
         String arrayName = list.get(currentLine).split(":")[0].replaceFirst("\"", "");
-        arrayName = arrayName.substring(0,arrayName.length()-1);
+        arrayName = arrayName.substring(0,arrayName.length()-1).trim();
 
         JSONArray jsonArray = new JSONArray(arrayName);
         ArrayList<ArrayList<JSONItem>> itemArrayList = new ArrayList<>();
@@ -66,12 +66,13 @@ public class JSONReader {
                 ArrayList<JSONItem> itemList = new ArrayList<>();
                 for(int j = 0; j < list.size();j++) {
                     if(list.get(i+j).endsWith("}") || list.get(i+j).endsWith("},")) {
-                        System.out.println("ENDFOUND");
+                        //System.out.println("ENDFOUND");
                         i += j;
                         break;
                     }
                     itemList.add(lineToJSONItem(list.get(i+j)));
-                    //System.out.println(list.get(i+j));
+                    System.out.println(lineToJSONItem(list.get(i+j)).buildToString());
+                    System.out.println(list.get(i+j));
                 }
                 itemArrayList.add(itemList);
             }
@@ -84,10 +85,33 @@ public class JSONReader {
 
 
     private JSONItem lineToJSONItem(String line) {
-        String replaceComma = line.substring(0,line.length()-1);
-        String[] splitLine = replaceComma.split(":");
+        String[] splitLine;
+        if (line.endsWith((","))) {
+            String replaceComma = line.substring(0, line.length() - 1);
+            splitLine = replaceComma.split(":");
+        } else{
+            splitLine = line.split(":");
+        }
+
+
+        String key = splitLine[0].trim();
+        String data = splitLine[1].trim();
+        if(data.startsWith("\"") && data.endsWith("\"")) {
+            data = data.substring(1);
+            data = data.substring(0,data.length()-1);
+        }
+
+        if(key.startsWith("\"") && key.endsWith("\"")) {
+            key = key.substring(1);
+            key = key.substring(0,key.length()-1);
+        }
+
+        //System.out.println(key+" "+data);
+
         /* TODO: Change so that splitLine[1] recognizes data to Object instead of String*/
-        return new JSONItem(splitLine[0].replace("\"", ""), splitLine[1]);
+        JSONItem item = new JSONItem(key, data);
+        //System.out.println(item.buildToString());
+        return item;
     }
 
     private boolean testLineJSONItem(String line) {
