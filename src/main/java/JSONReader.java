@@ -29,15 +29,29 @@ public class JSONReader {
                 if (testLineJSONObject(list.get(i))) {
                    // System.out.println(list.get(i) + " &Object&");
                 } else if(testLineJSONArray(list.get(i))) {
+                    i += processArray(list,i);
                     //System.out.println(list.get(i) + " ?Array?");
                 } else if(testLineJSONItem(list.get(i))) {
                     jsonFile.add(lineToJSONItem(list.get(i)));
-                    System.out.println(list.get(i) + " !Item!");
+                    //System.out.println(list.get(i) + " !Item!");
                 }
+                if(i < list.size())
+                System.out.println(list.get(i));
             }
         }
 
         return jsonFile;
+    }
+
+    private int processArray(ArrayList<String> list, int currentLine) {
+        for(int i = 0; i < list.size();  i++) {
+            if(list.get(i + currentLine).endsWith("],")) {
+                //System.out.print("PROCESSARRAY: " + i + list.get(i));
+                return i+1;
+            }
+        }
+
+        return 0;
     }
 
     private JSONItem lineToJSONItem(String line) {
