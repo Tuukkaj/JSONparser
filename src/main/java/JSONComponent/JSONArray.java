@@ -30,16 +30,17 @@ public class JSONArray extends JSONComponent{
 
     public String buildToString() {
         StringBuilder builder = new StringBuilder( ": [\n");
+        if(list.size() > 0) {
+            JSONArrayComponent lastComponent = list.get(list.size() - 1);
+            list.forEach((JSONArrayComponent) -> {
+                if (lastComponent.equals(JSONArrayComponent)) {
+                    builder.append(JSONArrayComponent.buildToString() + "\n");
+                } else {
+                    builder.append(JSONArrayComponent.buildToString() + ",\n");
 
-        JSONArrayComponent lastComponent = list.get(list.size()-1);
-        list.forEach((JSONArrayComponent) -> {
-            if(lastComponent.equals(JSONArrayComponent)) {
-                builder.append(JSONArrayComponent.buildToString()+"\n");
-            } else {
-                builder.append(JSONArrayComponent.buildToString() + ",\n");
-
-            }
-        });
+                }
+            });
+        }
         builder.append("\t]");
 
         return builder.toString();

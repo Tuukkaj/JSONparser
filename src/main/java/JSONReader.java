@@ -29,30 +29,59 @@ public class JSONReader {
                 if (testLineJSONObject(list.get(i))) {
                    // System.out.println(list.get(i) + " &Object&");
                 } else if(testLineJSONArray(list.get(i))) {
-                    i += processArray(list,i);
+                    jsonFile.add(linesToJSONArray(list,i));
+                    i += determineJSONArraySize(list,i);
                     //System.out.println(list.get(i) + " ?Array?");
                 } else if(testLineJSONItem(list.get(i))) {
                     jsonFile.add(lineToJSONItem(list.get(i)));
                     //System.out.println(list.get(i) + " !Item!");
                 }
-                if(i < list.size())
-                System.out.println(list.get(i));
+                //if(i < list.size())
+                //System.out.println(list.get(i));
             }
         }
 
+        System.out.println(jsonFile.buildToString());
         return jsonFile;
     }
 
-    private int processArray(ArrayList<String> list, int currentLine) {
+    private int determineJSONArraySize(ArrayList<String> list, int currentLine) {
         for(int i = 0; i < list.size();  i++) {
             if(list.get(i + currentLine).endsWith("],")) {
-                //System.out.print("PROCESSARRAY: " + i + list.get(i));
                 return i+1;
             }
         }
 
         return 0;
     }
+
+    private JSONArray linesToJSONArray(ArrayList<String> list, int currentLine) {
+        String arrayName = list.get(currentLine).split(":")[0].replaceFirst("\"", "");
+        arrayName = arrayName.substring(0,arrayName.length()-1);
+
+        JSONArray jsonArray = new JSONArray(arrayName);
+        ArrayList<ArrayList<JSONItem>> itemArrayList = new ArrayList<>();
+        for(int i = currentLine; i < list.size(); i++) {
+            if(testLineJSONItem(list.get(i))) {
+                ArrayList<JSONItem> itemList = new ArrayList<>();
+                for(int j = 0; j < list.size();j++) {
+                    if(list.get(i+j).endsWith("}") || list.get(i+j).endsWith("},")) {
+                        System.out.println("ENDFOUND");
+                        i += j;
+                        break;
+                    }
+                    itemList.add(lineToJSONItem(list.get(i+j)));
+                    //System.out.println(list.get(i+j));
+                }
+                itemArrayList.add(itemList);
+            }
+        }
+
+        itemArrayList.forEach(a -> jsonArray.addAndCreateJSONArrayComponent("placeholder", a));
+        return jsonArray;
+    }
+
+
 
     private JSONItem lineToJSONItem(String line) {
         String replaceComma = line.substring(0,line.length()-1);
