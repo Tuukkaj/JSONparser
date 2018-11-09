@@ -9,6 +9,8 @@ class JSONParser {
     public static void main(String... args) {
         System.out.println("Author: Tuukka Juusela <tuukka.juusela@cs.tamk.fi>");
 
+
+        //TEST FILE CREATION
         JSONFileData fd = new JSONFileData();
         fd.add(new JSONItem("name", "Tuukka"));
         fd.add(new JSONItem("city", "tre"));

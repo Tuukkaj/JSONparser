@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class JSONArray extends JSONComponent{
@@ -58,14 +58,11 @@ public class JSONArray extends JSONComponent{
     }
 
     public class JSONArrayComponent extends JSONComponent{
-        private HashMap<String, Object> map;
+        private LinkedHashMap<String, Object> map;
 
-        public JSONArrayComponent() {
-            map = new HashMap<>();
-        }
         public JSONArrayComponent(String key) {
             setKey(key);
-            map = new HashMap<>();
+            map = new LinkedHashMap<>();
         }
 
         public void add(JSONItem item) {
@@ -78,8 +75,14 @@ public class JSONArray extends JSONComponent{
 
         public String buildToString() {
             StringBuilder builder = new StringBuilder("\t{\n");
+            int i = 0;
             for(String s: map.keySet()) {
-                builder.append("\t\t\"" + s + "\" " + map.get(s) + ",\n");
+                if(i < map.size()-1) {
+                    builder.append("\t\t\"" + s + "\" " + map.get(s) + ",\n");
+                } else  {
+                    builder.append("\t\t\"" + s + "\" " + map.get(s) + "\n");
+                }
+                i++;
             }
 
             builder.append("\t}");
