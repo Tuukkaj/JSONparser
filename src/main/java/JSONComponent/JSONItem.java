@@ -1,4 +1,6 @@
-class JSONItem extends JSONComponent {
+package JSONComponent;
+
+public class JSONItem extends JSONComponent {
     private Object data;
 
     public JSONItem(String key, Object data) {

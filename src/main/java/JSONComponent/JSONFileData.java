@@ -1,6 +1,8 @@
+package JSONComponent;
+
 import java.util.LinkedHashMap;
 
-class JSONFileData {
+public class JSONFileData {
     LinkedHashMap<String, Object> map;
 
     public JSONFileData() {

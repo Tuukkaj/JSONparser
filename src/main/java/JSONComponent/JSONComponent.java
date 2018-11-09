@@ -1,4 +1,6 @@
-abstract class JSONComponent {
+package JSONComponent;
+
+public abstract class JSONComponent {
     /**
      * Key of the object in JSONFile.
      */

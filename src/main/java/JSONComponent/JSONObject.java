@@ -1,3 +1,5 @@
+package JSONComponent;
+
 import java.util.HashMap;
 
 public class JSONObject extends JSONComponent {
