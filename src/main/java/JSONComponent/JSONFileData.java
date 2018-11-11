@@ -18,7 +18,7 @@ public class JSONFileData {
     }
 
     public String buildToString() {
-        StringBuilder b = new StringBuilder();
+        StringBuilder b = new StringBuilder("{\n");
         int i = 0;
 
         for(String s: map.keySet()) {
@@ -29,6 +29,8 @@ public class JSONFileData {
             }
             i++;
         }
+
+        b.append("}\n");
 
         return b.toString();
     }

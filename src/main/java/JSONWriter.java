@@ -21,24 +21,15 @@ public class JSONWriter {
     public void write(JSONFileData fileData) {
         try (FileWriter fileWriter = new FileWriter(currentFile)){
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.append(buildToFileText(fileData));
+            bufferedWriter.append(fileData.buildToString());
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private String buildToFileText(JSONFileData file) {
-        StringBuilder builder = new StringBuilder("{\n");
-
-        builder.append(file.buildToString());
-
-        builder.append("}\n");
-
-        return builder.toString();
-    }
 
     public void print(JSONFileData file) {
-        System.out.println(buildToFileText(file));
+        System.out.println(file.buildToString());
     }
 }
