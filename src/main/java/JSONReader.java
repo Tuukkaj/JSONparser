@@ -35,8 +35,6 @@ public class JSONReader {
                 } else if(testLineJSONItem(list.get(i))) {
                     jsonFile.add(lineToJSONItem(list.get(i)));
                 }
-
-                //System.out.println(list.get(i));
             }
         }
 
@@ -59,7 +57,7 @@ public class JSONReader {
         objectKey = objectKey.substring(1);
         object.setKey(objectKey);
 
-        for(int i = currentLine; i <= currentLine + endLine -2; i++) {
+        for(int i = currentLine + 1; i <= currentLine + endLine -1; i++) {
             if(testLineJSONObjectComponent(list.get(i))) {
                 String line = list.get(i);
                 if(line.endsWith(",")) {
