@@ -111,13 +111,10 @@ public class JSONReader {
                 ArrayList<JSONItem> itemList = new ArrayList<>();
                 for(int j = 0; j < list.size();j++) {
                     if(list.get(i+j).endsWith("}") || list.get(i+j).endsWith("},")) {
-                        //System.out.println("ENDFOUND");
                         i += j;
                         break;
                     }
                     itemList.add(lineToJSONItem(list.get(i+j)));
-                    //System.out.println(lineToJSONItem(list.get(i+j)).buildToString());
-                    //System.out.println(list.get(i+j));
                 }
                 itemArrayList.add(itemList);
             }
@@ -180,6 +177,8 @@ public class JSONReader {
 
     private boolean testLineJSONArray(String line) {
         if(line.endsWith("[") && line.contains(":")) {
+            return true;
+        } else if(line.trim().endsWith("[],") | line.trim().endsWith("[]")) {
             return true;
         }
         return false;

@@ -29,8 +29,9 @@ public class JSONArray extends JSONComponent{
     }
 
     public String buildToString() {
-        StringBuilder builder = new StringBuilder( ": [\n");
-        if(list.size() > 0) {
+        StringBuilder builder = new StringBuilder();
+        if (list.size() > 0) {
+            builder.append(": [\n");
             JSONArrayComponent lastComponent = list.get(list.size() - 1);
             list.forEach((JSONArrayComponent) -> {
                 if (lastComponent.equals(JSONArrayComponent)) {
@@ -40,8 +41,11 @@ public class JSONArray extends JSONComponent{
 
                 }
             });
+            builder.append("\t]");
+        } else {
+            builder.append(": []");
         }
-        builder.append("\t]");
+
 
         return builder.toString();
     }
