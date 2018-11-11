@@ -37,9 +37,9 @@ public class JSONObject extends JSONComponent {
         int i = 0;
         for(String s: table.keySet()) {
             if(i < table.size()-1) {
-                b.append(space + space + s + "\"" + table.get(s) + ",\n");
+                b.append(space + space +"\""+ s + "\": " + table.get(s) + ",\n");
             } else {
-                b.append(space + space +  s + "\"" + table.get(s) + "\n");
+                b.append(space + space + "\""+ s + "\": " + table.get(s) + "\n");
             }
             i++;
         }

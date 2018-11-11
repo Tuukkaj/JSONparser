@@ -24,9 +24,9 @@ public class JSONFileData {
 
         for(String s: map.keySet()) {
             if (i >= map.size()-1) {
-                b.append(space + s +"\""+ map.get(s) + "\n");
+                b.append(space +"\"" + s +"\""+ map.get(s) + "\n");
             } else {
-                b.append(space + s +"\""+ map.get(s) + ",\n");
+                b.append(space +"\""+ s +"\""+ map.get(s) + ",\n");
             }
             i++;
         }
