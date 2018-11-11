@@ -13,7 +13,6 @@ class JSONParser {
     public static void main(String... args) {
         System.out.println("Author: Tuukka Juusela <tuukka.juusela@cs.tamk.fi>");
 
-
         //TEST FILE CREATION
         JSONFileData fd = new JSONFileData();
         fd.add(new JSONItem("name", "Tuukka"));
@@ -48,11 +47,11 @@ class JSONParser {
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
         writer.write(fd);
-        //writer.print(fd);
 
         reader = new JSONReader();
         ArrayList<String> readerList = reader.readFileToArrayList(new File("JSONWritingTests/wikipediaExample.json"));
         //readerList.forEach(s -> System.out.println(s));
-        reader.arrayListToJSONFileData(readerList);
+        JSONFileData jsonFile = reader.arrayListToJSONFileData(readerList);
+        //System.out.println(jsonFile.buildToString());
     }
 }
