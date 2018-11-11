@@ -50,14 +50,14 @@ public class JSONReader {
         return false;
     }
 
-    private JSONObject linesToJSONObject(ArrayList<String> list, int currentLine, int endLine) {
+    private JSONObject linesToJSONObject(ArrayList<String> list, int currentLine, int checkLength) {
         JSONObject object = new JSONObject();
         String objectKey = list.get(currentLine).split(":")[0].trim();
         objectKey = objectKey.substring(0,objectKey.length()-1);
         objectKey = objectKey.substring(1);
         object.setKey(objectKey);
 
-        for(int i = currentLine + 1; i <= currentLine + endLine -1; i++) {
+        for(int i = currentLine + 1; i <= currentLine + checkLength -1; i++) {
             if(testLineJSONObjectComponent(list.get(i))) {
                 String line = list.get(i);
                 if(line.endsWith(",")) {
