@@ -100,16 +100,16 @@ public class JSONReader {
         return 0;
     }
 
-    private JSONArray linesToJSONArray(ArrayList<String> list, int currentLine) {
+    private JSONArray linesToJSONArray(ArrayList<String> list, int currentLine, int checkLength) {
         String arrayName = list.get(currentLine).split(":")[0].replaceFirst("\"", "");
         arrayName = arrayName.substring(0,arrayName.length()-1).trim();
 
         JSONArray jsonArray = new JSONArray(arrayName);
         ArrayList<ArrayList<JSONItem>> itemArrayList = new ArrayList<>();
-        for(int i = currentLine; i < list.size(); i++) {
+        for(int i = currentLine; i < currentLine + checkLength; i++) {
             if(testLineJSONItem(list.get(i))) {
                 ArrayList<JSONItem> itemList = new ArrayList<>();
-                for(int j = 0; j < list.size();j++) {
+                for(int j = 0; j < currentLine + checkLength;j++) {
                     if(list.get(i+j).endsWith("}") || list.get(i+j).endsWith("},")) {
                         i += j;
                         break;
