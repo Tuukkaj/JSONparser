@@ -32,18 +32,19 @@ public class JSONObject extends JSONComponent {
 
     @Override
     public String buildToString() {
+        String space = "    ";
         StringBuilder b = new StringBuilder(": {\n");
         int i = 0;
         for(String s: table.keySet()) {
             if(i < table.size()-1) {
-                b.append("\t\t\"" + s + "\"" + table.get(s) + ",\n");
+                b.append(space + space + s + "\"" + table.get(s) + ",\n");
             } else {
-                b.append("\t\t\"" + s + "\"" + table.get(s) + "\n");
+                b.append(space + space +  s + "\"" + table.get(s) + "\n");
             }
             i++;
         }
 
-        b.append("\t}");
+        b.append(space + "}");
 
         return b.toString();
     }

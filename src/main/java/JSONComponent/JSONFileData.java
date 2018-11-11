@@ -18,14 +18,15 @@ public class JSONFileData {
     }
 
     public String buildToString() {
+        String space = "    ";
         StringBuilder b = new StringBuilder("{\n");
         int i = 0;
 
         for(String s: map.keySet()) {
             if (i >= map.size()-1) {
-                b.append("\t\"" + s +"\""+ map.get(s) + "\n");
+                b.append(space + s +"\""+ map.get(s) + "\n");
             } else {
-                b.append("\t\"" + s +"\""+ map.get(s) + ",\n");
+                b.append(space + s +"\""+ map.get(s) + ",\n");
             }
             i++;
         }

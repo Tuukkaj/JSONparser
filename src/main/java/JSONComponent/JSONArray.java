@@ -77,18 +77,19 @@ public class JSONArray extends JSONComponent{
         }
 
         public String buildToString() {
-            StringBuilder builder = new StringBuilder("\t{\n");
+            String space = "    ";
+            StringBuilder builder = new StringBuilder(space + space+"{\n");
             int i = 0;
             for(String s: map.keySet()) {
                 if(i < map.size()-1) {
-                    builder.append("\t\t\"" + s + "\" " + map.get(s) + ",\n");
+                    builder.append(space + space + "  " + s + "\" " + map.get(s) + ",\n");
                 } else  {
-                    builder.append("\t\t\"" + s + "\" " + map.get(s) + "\n");
+                    builder.append(space + space  + "  " + s + "\" " + map.get(s) + "\n");
                 }
                 i++;
             }
 
-            builder.append("\t}");
+            builder.append(space + space +"}");
 
             return builder.toString();
         }
