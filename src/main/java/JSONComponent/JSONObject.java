@@ -15,12 +15,9 @@ public class JSONObject extends JSONComponent {
     }
 
     public void add(JSONItem item) {
-        table.put(item.getKey(), item.buildToString());
+        table.put(item.getKey(), item.getData());
     }
 
-    public void add(String key, Object data) {
-        table.put(key,data);
-    }
 
     public void remove(String key) {
         table.remove(key);

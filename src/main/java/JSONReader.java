@@ -67,16 +67,36 @@ public class JSONReader {
                 key = key.substring(1);
                 key = key.substring(0,key.length()-1);
                 Object data = splitLine[1].trim();
-                if (data instanceof String && ((String) data).startsWith("\"") && ((String) data).endsWith("\"")) {
+                if(data.equals("true")) {
+                    data = true;
+                } else if(data.equals("false")) {
+                    data = false;
+                } else if (((String) data).startsWith("\"") && ((String) data).endsWith("\"")) {
                     data = ((String) data).substring(0,((String) data).length()-1);
                     data = ((String) data).substring(1);
+                } else if(data.equals(null)) {
+                    data = null;
+                } else if (((String) data).matches("\\d+")){
+                    data = Integer.parseInt((String) data);
+                } else if(((String) data).matches("[-+]?[0-9]*\\.?[0-9]+"))  {
+                    data = Float.parseFloat((String) data);
+                } else if(testIfDataIsObject((String) data)) {
+                    data = linesToJSONObject(list,i,determineJSONObjectSize(list,i));
+                    i += determineJSONObjectSize(list,i);
                 }
-
-                object.add(key,data);
+                object.add(new JSONItem(key, data));
             }
         }
 
         return object;
+    }
+
+    private boolean testIfDataIsObject(String data) {
+        if(data.equals("{")) {
+            return true;
+        }
+
+        return false;
     }
 
     private int determineJSONObjectSize(ArrayList<String> list, int currentLine) {
