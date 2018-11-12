@@ -29,6 +29,7 @@ public class JSONArray extends JSONComponent{
     }
 
     public String buildToString() {
+        String space = "  ";
         StringBuilder builder = new StringBuilder();
         if (list.size() > 0) {
             builder.append(": [\n");
@@ -41,7 +42,7 @@ public class JSONArray extends JSONComponent{
 
                 }
             });
-            builder.append("\t]");
+            builder.append(space + "]");
         } else {
             builder.append(": []");
         }
