@@ -31,7 +31,7 @@ public class JSONFileData {
     }
 
     public String buildToString() {
-        String space = "    ";
+        String space = "  ";
         StringBuilder b = new StringBuilder("{\n");
         int i = 0;
 

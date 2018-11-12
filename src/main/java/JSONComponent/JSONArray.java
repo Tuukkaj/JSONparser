@@ -81,7 +81,7 @@ public class JSONArray extends JSONComponent{
         }
 
         public String buildToString() {
-            String space = "    ";
+            String space = "  ";
             StringBuilder builder = new StringBuilder(space + space+"{\n");
             int i = 0;
             for(String s: map.keySet()) {

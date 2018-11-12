@@ -41,7 +41,11 @@ class JSONParser {
         array.addAndCreateJSONArrayComponent("homephone", homePhone);
         array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
         fd.add(array);
+
+
         writer = new JSONWriter(new File("JSONWritingTests/test.json"));
+        writer.print(fd);
+        /*
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
         writer.write(fd);
@@ -53,6 +57,6 @@ class JSONParser {
         //readerList.forEach(s -> System.out.println(s));
         JSONFileData jsonFile = reader.arrayListToJSONFileData(readerList);
         System.out.println(jsonFile.getComponent("age"));
-        System.out.println(jsonFile.buildToString());
+        System.out.println(jsonFile.buildToString());*/
     }
 }

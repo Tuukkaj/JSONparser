@@ -29,7 +29,7 @@ public class JSONObject extends JSONComponent {
 
     @Override
     public String buildToString() {
-        String space = "    ";
+        String space = "  ";
         StringBuilder b = new StringBuilder(": {\n");
         int i = 0;
         for(String s: table.keySet()) {
