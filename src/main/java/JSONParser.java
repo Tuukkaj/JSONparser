@@ -1,7 +1,4 @@
-import JSONComponent.JSONArray;
-import JSONComponent.JSONFileData;
-import JSONComponent.JSONItem;
-import JSONComponent.JSONObject;
+import JSONComponent.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,8 +21,8 @@ class JSONParser {
 
         JSONObject object = new JSONObject("emailAddresses");
         object.add(new JSONItem("school", "cool.email@tamk.fi"));
-        object.add(new JSONItem("personal", "hadgfjas.fadsjdfas@hotmail.com"));
-        object.add(new JSONItem("hobby", "asdjasjdh@aksjddadksj.fi"));
+        object.add(new JSONItem("personal", "wow.last@hotmail.com"));
+        object.add(new JSONItem("hobby", "hirvi@kaijakoo.fi"));
         fd.add(object);
 
         JSONArray array = new JSONArray("PhoneNumbers");
@@ -45,6 +42,12 @@ class JSONParser {
 
         JSONItem testItem = (JSONItem) fd.getComponent("name");
         System.out.println(testItem.getData());
+        JSONObject object2 = new JSONObject("Objekti objekstissa");
+
+        object2.add(new JSONItem("eka testi", object));
+        object2.add(new JSONItem("toka testi", array));
+        fd.add(object2);
+
 
         JSONObject testObject = (JSONObject)fd.getComponent("emailAddresses");
         System.out.println(testObject.getData().get("school"));
@@ -53,6 +56,9 @@ class JSONParser {
 
         writer = new JSONWriter(new File("JSONWritingTests/test.json"));
         writer.print(fd);
+        JSONObject innerObject = (JSONObject) object2.getObject("eka testi");
+        System.out.println(innerObject.getObject("school"));
+
         /*
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));

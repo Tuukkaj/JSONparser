@@ -37,10 +37,18 @@ public class JSONObject extends JSONComponent {
         StringBuilder b = new StringBuilder(": {\n");
         int i = 0;
         for(String s: table.keySet()) {
-            if(i < table.size()-1) {
-                b.append(space + space +"\""+ s + "\": " + table.get(s) + ",\n");
+            if(table.get(s) instanceof JSONComponent) {
+                if (i < table.size() - 1) {
+                    b.append(space + "\"" + s + "\" " + ((JSONComponent) table.get(s)).buildToString() + ",\n");
+                } else {
+                    b.append(space + "\"" + s + "\" " +((JSONComponent) table.get(s)).buildToString() + "\n");
+                }
             } else {
-                b.append(space + space + "\""+ s + "\": " + table.get(s) + "\n");
+                if (i < table.size() - 1) {
+                    b.append(space + "\"" + s + "\": " + table.get(s) + ",\n");
+                } else {
+                    b.append(space + "\"" + s + "\": " + table.get(s) + "\n");
+                }
             }
             i++;
         }
