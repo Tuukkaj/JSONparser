@@ -1,16 +1,16 @@
 package JSONComponent;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class JSONObject extends JSONComponent {
-    private HashMap<String, Object> table;
+    private LinkedHashMap<String, Object> table;
 
     public JSONObject() {
-        table = new HashMap<>();
+        table = new LinkedHashMap<>();
     }
 
     public JSONObject(String key) {
-        table = new HashMap<>();
+        table = new LinkedHashMap<>();
         setKey(key);
     }
 
@@ -26,7 +26,7 @@ public class JSONObject extends JSONComponent {
         table.remove(key);
     }
 
-    public HashMap<String, Object> getData() {
+    public LinkedHashMap<String, Object> getData() {
         return table;
     }
 
