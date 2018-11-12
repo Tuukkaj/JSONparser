@@ -14,6 +14,10 @@ public class JSONObject extends JSONComponent {
         setKey(key);
     }
 
+    public Object getObject(String key) {
+        return table.get(key);
+    }
+
     public void add(JSONItem item) {
         table.put(item.getKey(), item.getData());
     }

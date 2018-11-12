@@ -17,12 +17,13 @@ class JSONParser {
         JSONFileData fd = new JSONFileData();
         fd.add(new JSONItem("name", "Tuukka"));
         fd.add(new JSONItem("city", "tre"));
+
         fd.add(new JSONItem("age", 21));
         fd.add(new JSONItem("alive", true));
         fd.add(new JSONItem("willToLive", null));
 
         JSONObject object = new JSONObject("emailAddresses");
-        object.add(new JSONItem("school", "gkjdfa.gajgfk@tamk.fi"));
+        object.add(new JSONItem("school", "cool.email@tamk.fi"));
         object.add(new JSONItem("personal", "hadgfjas.fadsjdfas@hotmail.com"));
         object.add(new JSONItem("hobby", "asdjasjdh@aksjddadksj.fi"));
         fd.add(object);
@@ -42,6 +43,13 @@ class JSONParser {
         array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
         fd.add(array);
 
+        JSONItem testItem = (JSONItem) fd.getComponent("name");
+        System.out.println(testItem.getData());
+
+        JSONObject testObject = (JSONObject)fd.getComponent("emailAddresses");
+        System.out.println(testObject.getData().get("school"));
+
+        JSONArray testArray = (JSONArray) fd.getComponent("PhoneNumbers");
 
         writer = new JSONWriter(new File("JSONWritingTests/test.json"));
         writer.print(fd);
