@@ -1,5 +1,6 @@
 package JSONComponent;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class JSONFileData {
@@ -7,6 +8,18 @@ public class JSONFileData {
 
     public JSONFileData() {
         map = new LinkedHashMap<>();
+    }
+
+    public ArrayList<JSONComponent> getComponents() {
+        ArrayList<JSONComponent> componentList = new ArrayList<>();
+        for(String s: map.keySet()) {
+            componentList.add(map.get(s));
+        }
+        return componentList;
+    }
+
+    public JSONComponent getComponent(String key) {
+        return map.get(key);
     }
 
     public void add(JSONComponent component) {

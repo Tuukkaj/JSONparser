@@ -1,5 +1,7 @@
 package JSONComponent;
 
+import java.util.ArrayList;
+
 public abstract class JSONComponent {
     /**
      * Key of the object in JSONFile.
