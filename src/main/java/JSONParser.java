@@ -52,6 +52,6 @@ class JSONParser {
         ArrayList<String> readerList = reader.readFileToArrayList(new File("JSONWritingTests/wikipediaExample.json"));
         //readerList.forEach(s -> System.out.println(s));
         JSONFileData jsonFile = reader.arrayListToJSONFileData(readerList);
-        //System.out.println(jsonFile.buildToString());
+        System.out.println(jsonFile.buildToString());
     }
 }

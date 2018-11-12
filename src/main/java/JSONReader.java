@@ -38,7 +38,6 @@ public class JSONReader {
             }
         }
 
-        System.out.println(jsonFile.buildToString());
         return jsonFile;
     }
 

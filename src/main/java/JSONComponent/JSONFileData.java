@@ -3,14 +3,14 @@ package JSONComponent;
 import java.util.LinkedHashMap;
 
 public class JSONFileData {
-    LinkedHashMap<String, Object> map;
+    LinkedHashMap<String, JSONComponent> map;
 
     public JSONFileData() {
         map = new LinkedHashMap<>();
     }
 
     public void add(JSONComponent component) {
-        map.put(component.getKey(), component.buildToString());
+        map.put(component.getKey(), component);
     }
 
     public void remove(String key) {
@@ -24,9 +24,9 @@ public class JSONFileData {
 
         for(String s: map.keySet()) {
             if (i >= map.size()-1) {
-                b.append(space +"\"" + s +"\""+ map.get(s) + "\n");
+                b.append(space +"\"" + s +"\""+ map.get(s).buildToString() + "\n");
             } else {
-                b.append(space +"\""+ s +"\""+ map.get(s) + ",\n");
+                b.append(space +"\""+ s +"\""+ map.get(s).buildToString() + ",\n");
             }
             i++;
         }
