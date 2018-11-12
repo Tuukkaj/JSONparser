@@ -82,7 +82,7 @@ public class JSONReader {
 
     private int determineJSONObjectSize(ArrayList<String> list, int currentLine) {
         for(int i = 0; i < list.size();  i++) {
-            if(list.get(i + currentLine).endsWith("},") && list.get(i + currentLine).endsWith("}")) {
+            if(list.get(i + currentLine).endsWith("},") || list.get(i + currentLine).endsWith("}")) {
                 return i;
             }
         }
