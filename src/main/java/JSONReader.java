@@ -19,6 +19,11 @@ public class JSONReader {
         return list;
     }
 
+    public JSONFileData readFile(File file) {
+        ArrayList<String> readFile = readFileToArrayList(file);
+        return arrayListToJSONFileData(readFile);
+    }
+
     public JSONFileData arrayListToJSONFileData(ArrayList<String> list) {
         JSONFileData jsonFile = null;
 
@@ -127,7 +132,7 @@ public class JSONReader {
             }
         }
 
-        itemArrayList.forEach(a -> jsonArray.addAndCreateJSONArrayComponent(a));
+        itemArrayList.forEach(a -> jsonArray.add(a));
         return jsonArray;
     }
 

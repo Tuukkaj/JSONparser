@@ -16,15 +16,12 @@ public class JSONArray extends JSONComponent{
         return list;
     }
 
-    public void add(JSONArrayComponent component) {
-            list.add(component);
-    }
 
-    public void addAndCreateJSONArrayComponent(List<JSONItem> list) {
+    public void add(List<JSONItem> list) {
         this.list.add(createJSONArrayComponent(list));
     }
 
-    public void addAndCreateJSONArrayComponent(JSONItem item) {
+    public void add(JSONItem item) {
         this.list.add(createJSONArrayComponent(item));
     }
 
@@ -78,6 +75,10 @@ public class JSONArray extends JSONComponent{
 
         public void remove(String key) {
             map.remove(key);
+        }
+
+        public Object get(String key) {
+            return map.get(key);
         }
 
         public String buildToString() {
