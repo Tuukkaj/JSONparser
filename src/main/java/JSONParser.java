@@ -2,6 +2,8 @@ import JSONComponent.*;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 import JSONComponent.JSONArray;
 
 class JSONParser {
@@ -77,6 +79,10 @@ class JSONParser {
         ArrayList<JSONArray.JSONArrayComponent> arrayComponentArrayList = getArray.getData();
         for(JSONArray.JSONArrayComponent ac: arrayComponentArrayList) {
             System.out.println(ac.get("type"));
+        }
+        ArrayList<LinkedHashMap<String, Object>> mapArray = ((JSONArray)jsonFile.getComponent("phoneNumbers")).getLinkedHashMap();
+        for(LinkedHashMap<String, Object> maps: mapArray) {
+            System.out.println(maps.get("type"));
         }
     }
 }

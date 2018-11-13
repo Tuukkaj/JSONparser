@@ -16,6 +16,14 @@ public class JSONArray extends JSONComponent{
         return list;
     }
 
+    public ArrayList<LinkedHashMap<String, Object>> getLinkedHashMap() {
+        ArrayList<LinkedHashMap<String, Object>> mapArray = new ArrayList<>();
+
+        list.forEach(jsonArrayComponent -> mapArray.add(jsonArrayComponent.getLinkedHashMap()));
+        System.out.println(mapArray);
+        return mapArray;
+    }
+
 
     public void add(List<JSONItem> list) {
         this.list.add(createJSONArrayComponent(list));
@@ -79,6 +87,10 @@ public class JSONArray extends JSONComponent{
 
         public Object get(String key) {
             return map.get(key);
+        }
+
+        public LinkedHashMap<String, Object> getLinkedHashMap() {
+            return map;
         }
 
         public String buildToString() {
