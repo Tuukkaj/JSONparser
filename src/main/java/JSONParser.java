@@ -42,12 +42,16 @@ class JSONParser {
 
         JSONItem testItem = (JSONItem) fd.getComponent("name");
         System.out.println(testItem.getData());
-        JSONObject object2 = new JSONObject("ObjectInObject");
-
-        object2.add(new JSONItem("firstTest", object));
-        object2.add(new JSONItem("secondTest", array));
-        fd.add(object2);
-
+        JSONObject bigObject = new JSONObject("ObjectInObject");
+        JSONObject object3 = new JSONObject("OBJECTINOJBECTINOBJECT");
+        object3.add(new JSONItem("Third", 3));
+        object3.add(new JSONItem("Second", 2));
+        object3.add(new JSONItem("first", 1));
+        object.add(new JSONItem("Object3", object3));
+        bigObject.add(new JSONItem("firstTest", object));
+        bigObject.add(new JSONItem("secondTest", array));
+        fd.add(bigObject);
+        array.addAndCreateJSONArrayComponent("unnecessarykey",new JSONItem("Object", object3));
 
         JSONObject testObject = (JSONObject)fd.getComponent("emailAddresses");
         System.out.println(testObject.getData().get("school"));
@@ -56,8 +60,7 @@ class JSONParser {
 
         writer = new JSONWriter(new File("JSONWritingTests/test.json"));
         writer.print(fd);
-        JSONObject innerObject = (JSONObject) object2.getObject("eka testi");
-        System.out.println(innerObject.getObject("school"));
+        JSONObject innerObject = (JSONObject) bigObject.getObject("eka testi");
 
 
         writer.write(fd);/*

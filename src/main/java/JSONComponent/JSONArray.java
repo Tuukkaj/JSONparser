@@ -74,7 +74,7 @@ public class JSONArray extends JSONComponent{
         }
 
         public void add(JSONItem item) {
-            map.put(item.getKey(), item.buildToString());
+            map.put(item.getKey(), item.getData());
         }
 
         public void remove(String key) {
@@ -86,10 +86,24 @@ public class JSONArray extends JSONComponent{
             StringBuilder builder = new StringBuilder(space + space+"{\n");
             int i = 0;
             for(String s: map.keySet()) {
-                if(i < map.size()-1) {
-                    builder.append(space + space + "  \"" + s + "\" " + map.get(s) + ",\n");
-                } else  {
-                    builder.append(space + space  + "  \"" + s + "\" " + map.get(s) + "\n");
+                if(map.get(s) instanceof JSONComponent) {
+                    if (i < map.size() - 1) {
+                        builder.append(space + space + "  \"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + ",\n");
+                    } else {
+                        builder.append(space + space + "  \"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + "\n");
+                    }
+                } else if(map.get(s) instanceof String) {
+                    if (i < map.size() - 1) {
+                        builder.append(space + space + "  \"" + s + "\": \"" + map.get(s) + "\",\n");
+                    } else {
+                        builder.append(space + space + "  \"" + s + "\": \"" + map.get(s) + "\"\n");
+                    }
+                } else {
+                    if (i < map.size() - 1) {
+                        builder.append(space + space + "  \"" + s + "\": " + map.get(s) + ",\n");
+                    } else {
+                        builder.append(space + space + "  \"" + s + "\": " + map.get(s) + "\n");
+                    }
                 }
                 i++;
             }
