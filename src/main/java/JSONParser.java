@@ -59,8 +59,8 @@ class JSONParser {
         JSONObject innerObject = (JSONObject) object2.getObject("eka testi");
         System.out.println(innerObject.getObject("school"));
 
-        /*
-        writer.write(fd);
+
+        writer.write(fd);/*
         writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
