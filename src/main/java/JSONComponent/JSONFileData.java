@@ -1,7 +1,9 @@
 package JSONComponent;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class JSONFileData {
     LinkedHashMap<String, JSONComponent> map;
@@ -45,6 +47,31 @@ public class JSONFileData {
         }
 
         b.append("}\n");
+
+        return indent(b.toString());
+    }
+
+    private String indent(String textFile) {
+        int indentLevel = 0;
+        String space = "  ";
+        List<String> list = new ArrayList<>(Arrays.asList(textFile.split("\n")));
+        StringBuilder b = new StringBuilder();
+
+        for(String s: list) {
+            if(s.endsWith("},") | s.endsWith("}") | s.endsWith("],") | s.endsWith("]")) {
+                indentLevel--;
+            }
+
+            for(int i = 0; i < indentLevel; i++) {
+                b.append(space);
+            }
+
+            if(s.endsWith("{,") | s.endsWith("{") | s.endsWith("[") | s.endsWith("[,")) {
+                indentLevel++;
+            }
+
+            b.append(s+"\n");
+        }
 
         return b.toString();
     }
