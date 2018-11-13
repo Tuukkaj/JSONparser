@@ -42,10 +42,10 @@ class JSONParser {
 
         JSONItem testItem = (JSONItem) fd.getComponent("name");
         System.out.println(testItem.getData());
-        JSONObject object2 = new JSONObject("Objekti objekstissa");
+        JSONObject object2 = new JSONObject("ObjectInObject");
 
-        object2.add(new JSONItem("eka testi", object));
-        object2.add(new JSONItem("toka testi", array));
+        object2.add(new JSONItem("firstTest", object));
+        object2.add(new JSONItem("secondTest", array));
         fd.add(object2);
 
 

@@ -87,9 +87,9 @@ public class JSONArray extends JSONComponent{
             int i = 0;
             for(String s: map.keySet()) {
                 if(i < map.size()-1) {
-                    builder.append(space + space + "  " + s + "\" " + map.get(s) + ",\n");
+                    builder.append(space + space + "  \"" + s + "\" " + map.get(s) + ",\n");
                 } else  {
-                    builder.append(space + space  + "  " + s + "\" " + map.get(s) + "\n");
+                    builder.append(space + space  + "  \"" + s + "\" " + map.get(s) + "\n");
                 }
                 i++;
             }
