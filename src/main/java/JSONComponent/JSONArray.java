@@ -42,7 +42,7 @@ public class JSONArray extends JSONComponent{
 
                 }
             });
-            builder.append(space + "]");
+            builder.append("]");
         } else {
             builder.append(": []");
         }
@@ -82,32 +82,32 @@ public class JSONArray extends JSONComponent{
 
         public String buildToString() {
             String space = "  ";
-            StringBuilder builder = new StringBuilder(space + space+"{\n");
+            StringBuilder builder = new StringBuilder("{\n");
             int i = 0;
             for(String s: map.keySet()) {
                 if(map.get(s) instanceof JSONComponent) {
                     if (i < map.size() - 1) {
-                        builder.append(space + space + "  \"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + ",\n");
+                        builder.append("\"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + ",\n");
                     } else {
-                        builder.append(space + space + "  \"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + "\n");
+                        builder.append("\"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + "\n");
                     }
                 } else if(map.get(s) instanceof String) {
                     if (i < map.size() - 1) {
-                        builder.append(space + space + "  \"" + s + "\": \"" + map.get(s) + "\",\n");
+                        builder.append("\"" + s + "\": \"" + map.get(s) + "\",\n");
                     } else {
-                        builder.append(space + space + "  \"" + s + "\": \"" + map.get(s) + "\"\n");
+                        builder.append("\"" + s + "\": \"" + map.get(s) + "\"\n");
                     }
                 } else {
                     if (i < map.size() - 1) {
-                        builder.append(space + space + "  \"" + s + "\": " + map.get(s) + ",\n");
+                        builder.append("\"" + s + "\": " + map.get(s) + ",\n");
                     } else {
-                        builder.append(space + space + "  \"" + s + "\": " + map.get(s) + "\n");
+                        builder.append("\"" + s + "\": " + map.get(s) + "\n");
                     }
                 }
                 i++;
             }
 
-            builder.append(space + space +"}");
+            builder.append("}");
 
             return builder.toString();
         }

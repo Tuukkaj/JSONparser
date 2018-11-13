@@ -39,27 +39,27 @@ public class JSONObject extends JSONComponent {
         for(String s: table.keySet()) {
             if(table.get(s) instanceof JSONComponent) {
                 if (i < table.size() - 1) {
-                    b.append(space + "\"" + s + "\" " + ((JSONComponent) table.get(s)).buildToString() + ",\n");
+                    b.append("\"" + s + "\" " + ((JSONComponent) table.get(s)).buildToString() + ",\n");
                 } else {
-                    b.append(space + "\"" + s + "\" " +((JSONComponent) table.get(s)).buildToString() + "\n");
+                    b.append("\"" + s + "\" " +((JSONComponent) table.get(s)).buildToString() + "\n");
                 }
             } else if(table.get(s) instanceof  String) {
                 if (i < table.size() - 1) {
-                    b.append(space + "\"" + s + "\": \"" + table.get(s) + "\",\n");
+                    b.append("\"" + s + "\": \"" + table.get(s) + "\",\n");
                 } else {
-                    b.append(space + "\"" + s + "\": \"" + table.get(s) + "\"\n");
+                    b.append("\"" + s + "\": \"" + table.get(s) + "\"\n");
                 }
             } else {
                 if (i < table.size() - 1) {
-                    b.append(space + "\"" + s + "\": " + table.get(s) + ",\n");
+                    b.append("\"" + s + "\": " + table.get(s) + ",\n");
                 } else {
-                    b.append(space + "\"" + s + "\": " + table.get(s) + "\n");
+                    b.append( "\"" + s + "\": " + table.get(s) + "\n");
                 }
             }
             i++;
         }
 
-        b.append(space + "}");
+        b.append("}");
 
         return b.toString();
     }

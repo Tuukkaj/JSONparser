@@ -40,8 +40,6 @@ class JSONParser {
         array.addAndCreateJSONArrayComponent(mobilePhone);
         fd.add(array);
 
-        JSONItem testItem = (JSONItem) fd.getComponent("name");
-        System.out.println(testItem.getData());
         JSONObject bigObject = new JSONObject("ObjectInObject");
         JSONObject object3 = new JSONObject("OBJECTINOJBECTINOBJECT");
         object3.add(new JSONItem("Third", 3));
@@ -51,8 +49,16 @@ class JSONParser {
         bigObject.add(new JSONItem("firstTest", object));
         bigObject.add(new JSONItem("secondTest", array));
         bigObject.add(new JSONItem("objecterino", object3));
-        fd.add(bigObject);
-        array.addAndCreateJSONArrayComponent(new JSONItem("Object", object3));
+        //fd.add(bigObject);
+        //array.addAndCreateJSONArrayComponent(new JSONItem("Object", object3));
+        ArrayList<JSONItem> JSONItemList = new ArrayList<>();
+        JSONItemList.add(new JSONItem("product", "dog"));
+        JSONItemList.add(new JSONItem("color", "orange"));
+        JSONItemList.add(new JSONItem("product", "1"));
+        JSONArray petArray = new JSONArray("petArray");
+        petArray.addAndCreateJSONArrayComponent(JSONItemList);
+        petArray.addAndCreateJSONArrayComponent(new JSONItem("object3", object3));
+        array.addAndCreateJSONArrayComponent(new JSONItem("petArray", petArray));
 
 
         writer = new JSONWriter(new File("JSONWritingTests/test.json"));
