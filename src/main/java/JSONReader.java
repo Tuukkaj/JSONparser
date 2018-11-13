@@ -127,7 +127,7 @@ public class JSONReader {
             }
         }
 
-        itemArrayList.forEach(a -> jsonArray.addAndCreateJSONArrayComponent("placeholder", a));
+        itemArrayList.forEach(a -> jsonArray.addAndCreateJSONArrayComponent(a));
         return jsonArray;
     }
 

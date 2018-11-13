@@ -20,12 +20,12 @@ public class JSONArray extends JSONComponent{
             list.add(component);
     }
 
-    public void addAndCreateJSONArrayComponent(String key, List<JSONItem> list) {
-        this.list.add(createJSONArrayComponent(key,list));
+    public void addAndCreateJSONArrayComponent(List<JSONItem> list) {
+        this.list.add(createJSONArrayComponent(list));
     }
 
-    public void addAndCreateJSONArrayComponent(String key, JSONItem item) {
-        this.list.add(createJSONArrayComponent(key,item));
+    public void addAndCreateJSONArrayComponent(JSONItem item) {
+        this.list.add(createJSONArrayComponent(item));
     }
 
     public String buildToString() {
@@ -51,16 +51,16 @@ public class JSONArray extends JSONComponent{
         return builder.toString();
     }
 
-    public JSONArrayComponent createJSONArrayComponent(String key, List<JSONItem> itemList) {
-        JSONArrayComponent component = new JSONArrayComponent(key);
+    public JSONArrayComponent createJSONArrayComponent(List<JSONItem> itemList) {
+        JSONArrayComponent component = new JSONArrayComponent();
 
         itemList.forEach((JSONItem item) -> component.add(item));
 
         return component;
     }
 
-    public JSONArrayComponent createJSONArrayComponent(String key, JSONItem item) {
-        JSONArrayComponent component = new JSONArrayComponent(key);
+    public JSONArrayComponent createJSONArrayComponent(JSONItem item) {
+        JSONArrayComponent component = new JSONArrayComponent();
         component.add(item);
         return component;
     }
@@ -68,8 +68,7 @@ public class JSONArray extends JSONComponent{
     public class JSONArrayComponent extends JSONComponent{
         private LinkedHashMap<String, Object> map;
 
-        public JSONArrayComponent(String key) {
-            setKey(key);
+        public JSONArrayComponent() {
             map = new LinkedHashMap<>();
         }
 

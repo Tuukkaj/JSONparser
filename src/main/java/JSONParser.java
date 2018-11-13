@@ -35,9 +35,9 @@ class JSONParser {
         ArrayList<JSONItem> workPhone = new ArrayList<>();
         workPhone.add(new JSONItem("type", "work"));
         workPhone.add(new JSONItem("number", 654123));
-        array.addAndCreateJSONArrayComponent("workphone", workPhone);
-        array.addAndCreateJSONArrayComponent("homephone", homePhone);
-        array.addAndCreateJSONArrayComponent("mobilephone", mobilePhone);
+        array.addAndCreateJSONArrayComponent(workPhone);
+        array.addAndCreateJSONArrayComponent(homePhone);
+        array.addAndCreateJSONArrayComponent(mobilePhone);
         fd.add(array);
 
         JSONItem testItem = (JSONItem) fd.getComponent("name");
@@ -50,19 +50,13 @@ class JSONParser {
         object.add(new JSONItem("Object3", object3));
         bigObject.add(new JSONItem("firstTest", object));
         bigObject.add(new JSONItem("secondTest", array));
+        bigObject.add(new JSONItem("objecterino", object3));
         fd.add(bigObject);
-        array.addAndCreateJSONArrayComponent("unnecessarykey",new JSONItem("Object", object3));
+        array.addAndCreateJSONArrayComponent(new JSONItem("Object", object3));
 
-        JSONObject testObject = (JSONObject)fd.getComponent("emailAddresses");
-        System.out.println(testObject.getData().get("school"));
-
-        JSONArray testArray = (JSONArray) fd.getComponent("PhoneNumbers");
 
         writer = new JSONWriter(new File("JSONWritingTests/test.json"));
-        writer.print(fd);
-        JSONObject innerObject = (JSONObject) bigObject.getObject("eka testi");
-
-
+        //writer.print(fd);
         writer.write(fd);/*
         writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
         writer.write(fd);
