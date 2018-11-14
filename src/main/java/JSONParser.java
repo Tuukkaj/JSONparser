@@ -48,7 +48,7 @@ class JSONParser {
         object3.add(new JSONItem("Third", 3));
         object3.add(new JSONItem("Second", 2));
         object3.add(new JSONItem("first", 1));
-        object.add(new JSONItem("Object3", object3));
+        object.add(new JSONItem("DifferentObject", object3));
         bigObject.add(new JSONItem("firstTest", object));
         bigObject.add(new JSONItem("secondTest", array));
         bigObject.add(new JSONItem("objecterino", object3));
@@ -64,15 +64,15 @@ class JSONParser {
         array.add(new JSONItem("petArray", petArray));
 
 
-        writer = new JSONWriter(new File("JSONWritingTests/test.json"));
-        writer.print(fd);
+        writer = new JSONWriter(new File("JSONWritingTests/test3.json"));
+        //writer.print(fd);
         writer.write(fd);
-        writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
+        writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
         writer.write(fd);
 
-        reader = new JSONReader();
+        reader = new JSONReader();/*
         JSONFileData jsonFile = reader.readFile(new File("JSONWritingTests/wikipediaExample.json"));
         System.out.println(jsonFile.buildToString());
         JSONArray getArray = (JSONArray) jsonFile.getComponent("phoneNumbers");
@@ -83,6 +83,11 @@ class JSONParser {
         ArrayList<LinkedHashMap<String, Object>> mapArray = ((JSONArray)jsonFile.getComponent("phoneNumbers")).getLinkedHashMap();
         for(LinkedHashMap<String, Object> maps: mapArray) {
             System.out.println(maps.get("type"));
-        }
+        }*/
+
+        JSONFileData temp = reader.readFile(new File("JSONWritingTests/test.json"));
+        writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
+        //writer.print(temp);
+        writer.write(temp);
     }
 }

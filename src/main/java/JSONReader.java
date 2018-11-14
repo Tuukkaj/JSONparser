@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import JSONComponent.*;
@@ -60,10 +61,10 @@ public class JSONReader {
         objectKey = objectKey.substring(0,objectKey.length()-1);
         objectKey = objectKey.substring(1);
         object.setKey(objectKey);
-
-        for(int i = currentLine + 1; i <= currentLine + checkLength -1; i++) {
+        for(int i = currentLine+1; i <= currentLine + checkLength; i++) {
             if(testLineJSONObjectComponent(list.get(i))) {
                 String line = list.get(i);
+                line = line.trim();
                 if(line.endsWith(",")) {
                     line = line.substring(0,line.length()-1);
                 }
@@ -72,7 +73,6 @@ public class JSONReader {
                 key = key.substring(1);
                 key = key.substring(0,key.length()-1);
                 Object data = splitLine[1].trim();
-
                 if(testIfDataIsObject((String) data)) {
                     data = linesToJSONObject(list,i,determineJSONObjectSize(list,i));
                     i += determineJSONObjectSize(list,i);
@@ -80,12 +80,11 @@ public class JSONReader {
                 object.add(new JSONItem(key, data));
             }
         }
-
         return object;
     }
 
     private boolean testIfDataIsObject(String data) {
-        if(data.equals("{")) {
+        if(data.equals("{") | data.endsWith("{")) {
             return true;
         }
 
@@ -103,9 +102,19 @@ public class JSONReader {
     }
 
     private int determineJSONArraySize(ArrayList<String> list, int currentLine) {
-        for(int i = 0; i < list.size();  i++) {
-            if(list.get(i + currentLine).endsWith("],") || list.get(i + currentLine).endsWith("]")) {
-                return i;
+        int arraysFound = 0;
+        for(int i = currentLine +2; i < list.size();  i++) {
+            if (testLineJSONArray(list.get(i))) {
+                System.out.println(list.get(i) + "FOUND ARRAY");
+                arraysFound++;
+            } else if(list.get(i).trim().endsWith("],") || list.get(i).trim().endsWith("]")) {
+                if(arraysFound > 0) {
+                    arraysFound--;
+                }else {
+                    System.out.println(list.get(i));
+                    System.out.println("RETURNED  " + (i +1));
+                    return i - currentLine + 1;
+                }
             }
         }
 
@@ -113,22 +122,35 @@ public class JSONReader {
     }
 
     private JSONArray linesToJSONArray(ArrayList<String> list, int currentLine, int checkLength) {
-        String arrayName = list.get(currentLine).split(":")[0].replaceFirst("\"", "");
-        arrayName = arrayName.substring(0,arrayName.length()-1).trim();
+        String arrayName = list.get(currentLine).split(":")[0].replaceAll("\"", "");
+        arrayName = arrayName.trim();
 
         JSONArray jsonArray = new JSONArray(arrayName);
         ArrayList<ArrayList<JSONItem>> itemArrayList = new ArrayList<>();
         for(int i = currentLine; i < currentLine + checkLength; i++) {
-            if(testLineJSONItem(list.get(i))) {
-                ArrayList<JSONItem> itemList = new ArrayList<>();
-                for(int j = 0; j < currentLine + checkLength;j++) {
-                    if(list.get(i+j).endsWith("}") || list.get(i+j).endsWith("},")) {
-                        i += j;
+            ArrayList<JSONItem> itemList = new ArrayList<>();
+            if(list.get(i).trim().equals("{")) {
+                for(int j = i; j < currentLine+checkLength; j++) {
+                    if (testLineJSONObject(list.get(j))) {
+                        JSONObject tempObject = linesToJSONObject(list, j, determineJSONObjectSize(list, j));
+                        itemList.add(new JSONItem(tempObject.getKey(), tempObject));
+                        j += determineJSONObjectSize(list, j);
+                    } else if(testLineJSONArray(list.get(j))) {
+                        System.out.println("FOUND ARRAY HERE TOO" + list.get(j));
+                        JSONArray tempArray = linesToJSONArray(list, j, determineJSONArraySize(list, j));
+                        itemList.add(new JSONItem(tempArray.getKey(), tempArray));
+                        j +=  determineJSONArraySize(list,j);
+                    } else if (testLineJSONItem(list.get(j))) {
+                        itemList.add(lineToJSONItem(list.get(j)));
+                    }
+
+                    if (list.get(j).trim().endsWith("}") || list.get(j).trim().endsWith("},")) {
+                        System.out.println(i+j + " I + J " + j + " " + list.get(j));
+                        i = j;
+                        itemArrayList.add(itemList);
                         break;
                     }
-                    itemList.add(lineToJSONItem(list.get(i+j)));
                 }
-                itemArrayList.add(itemList);
             }
         }
 
@@ -188,6 +210,7 @@ public class JSONReader {
     }
 
     private boolean testLineJSONArray(String line) {
+        line = line.trim();
         if(line.endsWith("[") && line.contains(":")) {
             return true;
         } else if(line.trim().endsWith("[],") | line.trim().endsWith("[]")) {
