@@ -63,11 +63,12 @@ public class JSONReader {
         object.setKey(objectKey);
 
         for(int i = currentLine+1; i <= currentLine + checkLength; i++) {
-            System.out.println(list.get(i));
+
             if(testLineJSONArray(list.get(i))) {
-                JSONArray tempArray = linesToJSONArray(list, currentLine, determineJSONArraySize(list,i));
+                JSONArray tempArray = linesToJSONArray(list, i, determineJSONArraySize(list,i));
                 object.add(new JSONItem(tempArray.getKey(), tempArray));
-                i += determineJSONObjectSize(list,i);
+                i += determineJSONArraySize(list,i);
+
             } else if(testLineJSONObjectComponent(list.get(i))) {
                 String line = list.get(i);
                 line = line.trim();
@@ -102,9 +103,16 @@ public class JSONReader {
     }
 
     private int determineJSONObjectSize(ArrayList<String> list, int currentLine) {
-        for(int i = 0; i < list.size();  i++) {
-            if(list.get(i + currentLine).endsWith("},") || list.get(i + currentLine).endsWith("}")) {
-                return i;
+        int objectsFound = 0;
+        for(int i = currentLine+1; i < list.size();  i++) {
+            if (testIfDataIsObject(list.get(i))) {
+                objectsFound++;
+            } else if(list.get(i).trim().endsWith("},") || list.get(i).trim().endsWith("}")) {
+                if(objectsFound > 0) {
+                    objectsFound--;
+                }else {
+                    return i - currentLine;
+                }
             }
         }
 
@@ -113,7 +121,7 @@ public class JSONReader {
 
     private int determineJSONArraySize(ArrayList<String> list, int currentLine) {
         int arraysFound = 0;
-        for(int i = currentLine +2; i < list.size();  i++) {
+        for(int i = currentLine+1; i < list.size();  i++) {
             if (testLineJSONArray(list.get(i))) {
                 arraysFound++;
             } else if(list.get(i).trim().endsWith("],") || list.get(i).trim().endsWith("]")) {
