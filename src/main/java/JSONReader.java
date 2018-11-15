@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import JSONComponent.*;
@@ -57,27 +56,37 @@ public class JSONReader {
 
     private JSONObject linesToJSONObject(ArrayList<String> list, int currentLine, int checkLength) {
         JSONObject object = new JSONObject();
+
         String objectKey = list.get(currentLine).split(":")[0].trim();
         objectKey = objectKey.substring(0,objectKey.length()-1);
         objectKey = objectKey.substring(1);
         object.setKey(objectKey);
-        for(int i = currentLine+1; i <= currentLine + checkLength; i++) {
 
-            if(testLineJSONObjectComponent(list.get(i))) {
+        for(int i = currentLine+1; i <= currentLine + checkLength; i++) {
+            System.out.println(list.get(i));
+            if(testLineJSONArray(list.get(i))) {
+                JSONArray tempArray = linesToJSONArray(list, currentLine, determineJSONArraySize(list,i));
+                object.add(new JSONItem(tempArray.getKey(), tempArray));
+                i += determineJSONObjectSize(list,i);
+            } else if(testLineJSONObjectComponent(list.get(i))) {
                 String line = list.get(i);
                 line = line.trim();
+
                 if(line.endsWith(",")) {
                     line = line.substring(0,line.length()-1);
                 }
+
                 String[] splitLine = line.split(":");
                 String key = splitLine[0].trim();
                 key = key.substring(1);
                 key = key.substring(0,key.length()-1);
                 Object data = splitLine[1].trim();
+
                 if(testIfDataIsObject((String) data)) {
                     data = linesToJSONObject(list,i,determineJSONObjectSize(list,i));
                     i += determineJSONObjectSize(list,i);
                 }
+
                 object.add(new JSONItem(key, data));
             }
         }
