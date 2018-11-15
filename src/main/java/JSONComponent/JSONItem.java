@@ -5,7 +5,7 @@ package JSONComponent;
  * @version     2018.1115
  * @since       1.8
  *
- * Base item of JSONFiles. Used by JSONFileData.
+ * Base item of JSONFiles. Used by JSONFileData to hold data and by JSONObject and JSONArray to add and hold data.
  */
 public class JSONItem extends JSONComponent {
     /**
@@ -62,7 +62,7 @@ public class JSONItem extends JSONComponent {
 
     /**
      * Builds JSONItem's data to String to write into a file.
-     * @return
+     * @return Ready to write String for JSONFileData to use.
      */
     @Override
     public String buildToString() {
