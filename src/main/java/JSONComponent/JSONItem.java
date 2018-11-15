@@ -13,7 +13,7 @@ public class JSONItem extends JSONComponent {
             } else if (((String) data).startsWith("\"") && ((String) data).endsWith("\"")) {
                 data = ((String) data).substring(0, ((String) data).length() - 1);
                 data = ((String) data).substring(1);
-            } else if (data.equals(null)) {
+            } else if (data.equals(null) || data.equals("null")) {
                 data = null;
             } else if (((String) data).matches("\\d+")) {
                 data = Integer.parseInt((String) data);
