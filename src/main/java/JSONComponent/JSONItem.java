@@ -1,8 +1,27 @@
 package JSONComponent;
 
+/**
+ * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @version     2018.1115
+ * @since       1.8
+ *
+ * Base item of JSONFiles. Used by JSONFileData.
+ */
 public class JSONItem extends JSONComponent {
+    /**
+     * Data of the item.
+     */
     private Object data;
 
+    /**
+     * Constructor for the class. Sets key and data of the item .
+     *
+     * Sets key of JSONItem which is used in JSONFileData. Checks data's type if data is instance of String and
+     * sets it to a correct value.
+     *
+     * @param key Key of the JSONItem.
+     * @param data Data of the JSONItem.
+     */
     public JSONItem(String key, Object data) {
         setKey(key);
         if(data instanceof String) {
@@ -25,15 +44,26 @@ public class JSONItem extends JSONComponent {
         this.data = data;
     }
 
+    /**
+     * Returns data of the JSONItem.
+     * @return
+     */
     public Object getData() {
         return data;
     }
 
+    /**
+     * Sets key and data values to null.
+     */
     public void delete() {
         setKey(null);
         data = null;
     }
 
+    /**
+     * Builds JSONItem's data to String to write into a file.
+     * @return
+     */
     @Override
     public String buildToString() {
         if (data instanceof String) {
