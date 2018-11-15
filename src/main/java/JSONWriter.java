@@ -13,6 +13,13 @@ import java.io.IOException;
  * Writer class. Used to write files.
  */
 public class JSONWriter {
+    /**
+     * Writes JSONFileData to a file.
+     *
+     * Calls JSONFileData's buildToString() method to generate String to write.
+     * @param fileData JSONFile data to write.
+     * @param file File to write.
+     */
     public void write(JSONFileData fileData, File file) {
         try (FileWriter fileWriter = new FileWriter(file)){
             BufferedWriter bufferedWriter;
@@ -24,6 +31,10 @@ public class JSONWriter {
         }
     }
 
+    /**
+     * Prints JSONFileData. Simulates writing to a file.
+     * @param file
+     */
     public void print(JSONFileData file) {
         System.out.println(file.buildToString());
     }
