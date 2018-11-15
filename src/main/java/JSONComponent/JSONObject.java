@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
  * @version     2018.1115
  * @since       1.8
  *
- * JSONObject which can store JSONItems, JSONArrays and other JSONObjects.
+ * JSONObject can store JSONItems, JSONArrays and other JSONObjects.
  * Used by JSONFileData.
  */
 public class JSONObject extends JSONComponent {
@@ -63,7 +63,7 @@ public class JSONObject extends JSONComponent {
      * Builds JSONObject's data to be written to a file.
      *
      *  Goes through JSONObject's data and converts it to String. Determines if the data is JSONComponent, String or a
-     *  some other Object.
+     *  some other Object. Used by JSONFileData.
      * @return Ready to write String for JSONFileData to use.
      */
     @Override
