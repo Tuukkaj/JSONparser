@@ -65,12 +65,12 @@ class JSONParser {
 
 
         writer = new JSONWriter(new File("JSONWritingTests/test3.json"));
-        //writer.print(fd);
+        /*writer.print(fd);
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
         writer.write(fd);
         writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
-        writer.write(fd);
+        writer.write(fd);*/
 
         reader = new JSONReader();/*
         JSONFileData jsonFile = reader.readFile(new File("JSONWritingTests/wikipediaExample.json"));
@@ -85,7 +85,7 @@ class JSONParser {
             System.out.println(maps.get("type"));
         }*/
 
-        JSONFileData temp = reader.readFile(new File("JSONWritingTests/test.json"));
+        JSONFileData temp = reader.readFile(new File("JSONWritingTests/test3.json"));
         writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
         //writer.print(temp);
         writer.write(temp);
