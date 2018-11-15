@@ -1,7 +1,12 @@
 package JSONComponent;
 
-import java.util.ArrayList;
-
+/**
+ * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @version     2018.1115
+ * @since       1.8
+ *
+ * Base class for all of the JSONFiles.
+ */
 public abstract class JSONComponent {
     /**
      * Key of the object in JSONFile.
@@ -22,6 +27,10 @@ public abstract class JSONComponent {
         return key;
     }
 
+    /**
+     * Sets key value.
+     * @param key value to set.
+     */
     public void setKey(String key) {
         this.key = key;
     }
