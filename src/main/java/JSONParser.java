@@ -64,30 +64,12 @@ class JSONParser {
         array.add(new JSONItem("petArray", petArray));
 
 
-        writer = new JSONWriter(new File("JSONWritingTests/test3.json"));
-        /*writer.print(fd);
-        writer.write(fd);
-        writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
-        writer.write(fd);
-        writer.changeCurrentFile(new File("JSONWritingTests/test3.json"));
-        writer.write(fd);*/
+        writer = new JSONWriter();
 
-        reader = new JSONReader();/*
-        JSONFileData jsonFile = reader.readFile(new File("JSONWritingTests/wikipediaExample.json"));
-        System.out.println(jsonFile.buildToString());
-        JSONArray getArray = (JSONArray) jsonFile.getComponent("phoneNumbers");
-        ArrayList<JSONArray.JSONArrayComponent> arrayComponentArrayList = getArray.getData();
-        for(JSONArray.JSONArrayComponent ac: arrayComponentArrayList) {
-            System.out.println(ac.get("type"));
-        }
-        ArrayList<LinkedHashMap<String, Object>> mapArray = ((JSONArray)jsonFile.getComponent("phoneNumbers")).getLinkedHashMap();
-        for(LinkedHashMap<String, Object> maps: mapArray) {
-            System.out.println(maps.get("type"));
-        }*/
+        reader = new JSONReader();
 
         JSONFileData temp = reader.readFile(new File("JSONWritingTests/test3.json"));
-        writer.changeCurrentFile(new File("JSONWritingTests/test2.json"));
         //writer.print(temp);
-        writer.write(temp);
+        writer.write(temp, new File(("JSONWritingTests/test2.json")));
     }
 }
