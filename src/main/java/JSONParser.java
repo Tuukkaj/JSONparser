@@ -72,4 +72,20 @@ class JSONParser {
         //writer.print(temp);
         writer.write(temp, new File(("JSONWritingTests/test2.json")));
     }
+
+    public JSONItem createJSONItem(String key, Object data) {
+        return new JSONItem(key,data);
+    }
+
+    public JSONObject createJSONObject(String key) {
+        return new JSONObject(key);
+    }
+
+    public JSONArray createJSONArray(String key) {
+        return new JSONArray(key);
+    }
+
+    public JSONFileData createJSONFileData() {
+        return new JSONFileData();
+    }
 }
