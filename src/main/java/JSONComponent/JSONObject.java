@@ -68,22 +68,25 @@ public class JSONObject extends JSONComponent {
      */
     @Override
     public String buildToString() {
-        String space = "  ";
         StringBuilder b = new StringBuilder(": {\n");
         int i = 0;
+
         for(String s: table.keySet()) {
+
             if(table.get(s) instanceof JSONComponent) {
                 if (i < table.size() - 1) {
                     b.append("\"" + s + "\" " + ((JSONComponent) table.get(s)).buildToString() + ",\n");
                 } else {
                     b.append("\"" + s + "\" " +((JSONComponent) table.get(s)).buildToString() + "\n");
                 }
+
             } else if(table.get(s) instanceof  String) {
                 if (i < table.size() - 1) {
                     b.append("\"" + s + "\": \"" + table.get(s) + "\",\n");
                 } else {
                     b.append("\"" + s + "\": \"" + table.get(s) + "\"\n");
                 }
+
             } else {
                 if (i < table.size() - 1) {
                     b.append("\"" + s + "\": " + table.get(s) + ",\n");
@@ -91,6 +94,7 @@ public class JSONObject extends JSONComponent {
                     b.append( "\"" + s + "\": " + table.get(s) + "\n");
                 }
             }
+
             i++;
         }
 

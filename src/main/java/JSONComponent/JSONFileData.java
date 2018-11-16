@@ -69,7 +69,6 @@ public class JSONFileData {
      * @return ready to write/print JSONFile with indentations.
      */
     public String buildToString() {
-        String space = "  ";
         StringBuilder b = new StringBuilder("{\n");
         int i = 0;
 

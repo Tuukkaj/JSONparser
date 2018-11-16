@@ -71,24 +71,25 @@ public class JSONArray extends JSONComponent{
      * @return Ready to write String for JSONFileData to use.
      */
     public String buildToString() {
-        String space = "  ";
         StringBuilder builder = new StringBuilder();
+
         if (list.size() > 0) {
             builder.append(": [\n");
             JSONArrayComponent lastComponent = list.get(list.size() - 1);
+
             list.forEach((JSONArrayComponent) -> {
                 if (lastComponent.equals(JSONArrayComponent)) {
                     builder.append(JSONArrayComponent.buildToString() + "\n");
                 } else {
                     builder.append(JSONArrayComponent.buildToString() + ",\n");
-
                 }
             });
+
             builder.append("]");
+
         } else {
             builder.append(": []");
         }
-
 
         return builder.toString();
     }
