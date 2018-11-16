@@ -52,8 +52,7 @@ class JSONParser {
         bigObject.add(new JSONItem("firstTest", object));
         bigObject.add(new JSONItem("secondTest", array));
         bigObject.add(new JSONItem("objecterino", object3));
-        //fd.add(bigObject);
-        //array.addAndCreateJSONArrayComponent(new JSONItem("Object", object3));
+        fd.add(bigObject);
         ArrayList<JSONItem> JSONItemList = new ArrayList<>();
         JSONItemList.add(new JSONItem("product", "dog"));
         JSONItemList.add(new JSONItem("color", "orange"));
@@ -65,7 +64,8 @@ class JSONParser {
 
 
         writer = new JSONWriter();
-
+        writer.print(fd);
+        System.out.println("#END OF FILE");
         reader = new JSONReader();
 
         JSONFileData temp = reader.readFile(new File("JSONWritingTests/test3.json"));
