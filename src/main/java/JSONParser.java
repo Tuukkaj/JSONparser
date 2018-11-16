@@ -88,4 +88,16 @@ class JSONParser {
     public JSONFileData createJSONFileData() {
         return new JSONFileData();
     }
+
+    public void write(JSONFileData fileData, File fileToWriteOn) {
+        writer.write(fileData, fileToWriteOn);
+    }
+
+    public void print(JSONFileData fileData) {
+        writer.print(fileData);
+    }
+
+    public JSONFileData read(File file) {
+        return reader.readFile(file);
+    }
 }
