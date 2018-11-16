@@ -10,7 +10,7 @@ import JSONComponent.*;
  * Reads JSON file and creates JSONFileData from it.
  */
 public class JSONReader {
-    public ArrayList<String> readFileToArrayList(File file) {
+    private ArrayList<String> readFileToArrayList(File file) {
         ArrayList<String> list = new ArrayList<>();
         BufferedReader bufferedReader;
 
@@ -35,7 +35,7 @@ public class JSONReader {
         return arrayListToJSONFileData(readFile);
     }
 
-    public JSONFileData arrayListToJSONFileData(ArrayList<String> list) {
+    private JSONFileData arrayListToJSONFileData(ArrayList<String> list) {
         JSONFileData jsonFile = null;
 
         if (list.get(0).equalsIgnoreCase("{") && list.get(list.size()-1).equalsIgnoreCase("}")) {
