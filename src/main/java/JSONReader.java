@@ -10,6 +10,11 @@ import JSONComponent.*;
  * Reads JSON file and creates JSONFileData from it.
  */
 public class JSONReader {
+    /**
+     * Reads file's lines to ArrayList of Strings.
+     * @param file to read.
+     * @return File's lines as ArrayList.
+     */
     private ArrayList<String> readFileToArrayList(File file) {
         ArrayList<String> list = new ArrayList<>();
         BufferedReader bufferedReader;
@@ -29,12 +34,26 @@ public class JSONReader {
         return list;
     }
 
+    /**
+     * Reads file and turns it to JSONFileData.
+     * @param file to read.
+     * @return JSONFileData read from parameter file.
+     */
     public JSONFileData readFile(File file) {
         ArrayList<String> readFile = readFileToArrayList(file);
 
         return arrayListToJSONFileData(readFile);
     }
 
+    /**
+     * Turns ArrayList of Strings from file to JSONFileData.
+     *
+     * Checks if ArrayList begins and ends with correctly. Then starts going through each line and determining which
+     * line is JSONObject, JSONArray or JSONItem. If detects JSONObject or JSONArray skips forward to include their
+     * contents correctly.
+     * @param list to make JSONFileData from.
+     * @return JSONFileData created from ArrayList.
+     */
     private JSONFileData arrayListToJSONFileData(ArrayList<String> list) {
         JSONFileData jsonFile = null;
 
@@ -60,10 +79,27 @@ public class JSONReader {
         return jsonFile;
     }
 
+    /**
+     * Tests if line is some kind of JSONComponent.
+     * @param line to determine from.
+     * @return true if line is JSONComponent. False if not.
+     */
     private boolean testLineJSONObjectComponent(String line) {
         return line.contains(":");
     }
 
+    /**
+     * Turns selected section of ArrayList JSONObject.
+     *
+     * Goes through the lines and checks if content is JSONArray or JSONObject. If line is either one of those, it
+     * adds it to the JSONObject. Skips the lines of just added JSONArray or JSONObject and proceeds reading the
+     * list.
+     *
+     * @param list ArrayList of file's lines.
+     * @param currentLine line to start going trough the list.
+     * @param checkLength line to end going through the list.
+     * @return JSONObject created from list.
+     */
     private JSONObject linesToJSONObject(ArrayList<String> list, int currentLine, int checkLength) {
         String objectKey = list.get(currentLine).split(":")[0].trim();
         objectKey = objectKey.substring(0,objectKey.length()-1);
@@ -102,10 +138,24 @@ public class JSONReader {
         return object;
     }
 
+    /**
+     * Test if parameter is a JSONObject.
+     * @param data line to test.
+     * @return True if is JSONObject. False if not.
+     */
     private boolean testIfDataIsObject(String data) {
         return data.equals("{") | data.endsWith("{");
     }
 
+    /**
+     * Determines the size of JSONObject.
+     *
+     * Goes through the list and finds the ending curly bracket. Counts how many lines it took to find
+     * it and returns it.
+     * @param list ArrayList of file's lines.
+     * @param currentLine line to start going through the list.
+     * @return length of the JSONObject.
+     */
     private int determineJSONObjectSize(ArrayList<String> list, int currentLine) {
         int objectsFound = 0;
 
@@ -128,6 +178,15 @@ public class JSONReader {
         return 0;
     }
 
+    /**
+     * Determines the size of JSONArray.
+     *
+     * Goes through the list and finds the ending square bracket. Counts how many lines it took to
+     * find it and returns it.
+     * @param list ArrayList of file's lines.
+     * @param currentLine line to start going through the list.
+     * @return length of the JSONArray.
+     */
     private int determineJSONArraySize(ArrayList<String> list, int currentLine) {
         int arraysFound = 0;
 
@@ -150,6 +209,18 @@ public class JSONReader {
         return 0;
     }
 
+    /**
+     * Turns selected section of ArrayList JSONArray.
+     *
+     * Goes through the lines and checks if content is JSONArray or JSONObject. If line is either one of those, it
+     * adds it to the JSONArray. Skips the lines of just added JSONArray or JSONObject and proceeds reading the
+     * list.
+     *
+     * @param list ArrayList of file's lines.
+     * @param currentLine line to start going trough the list.
+     * @param checkLength line to end going through the list.
+     * @return JSONArray created from list.
+     */
     private JSONArray linesToJSONArray(ArrayList<String> list, int currentLine, int checkLength) {
         String arrayName = list.get(currentLine).split(":")[0].replaceAll("\"", "");
         arrayName = arrayName.trim();
@@ -191,8 +262,11 @@ public class JSONReader {
         return jsonArray;
     }
 
-
-
+    /**
+     * Creates JSONItem from line. Checks and trims the line from " " and white spaces.
+     * @param line to create JSONItem from.
+     * @return JSONItem created from line.
+     */
     private JSONItem lineToJSONItem(String line) {
         String[] splitLine;
 
@@ -220,6 +294,11 @@ public class JSONReader {
         return new JSONItem(key, data);
     }
 
+    /**
+     * Tests if JSONItem can be created from parameter line.
+     * @param line to check.
+     * @return True if line can be transformed to JSONItem. False if not.
+     */
     private boolean testLineJSONItem(String line) {
         line = line.trim();
 
@@ -240,10 +319,20 @@ public class JSONReader {
         return false;
     }
 
+    /**
+     * Tests if line is a beginning of JSONObject.
+     * @param line to check.
+     * @return True if line is beginning JSONObject. False if not.
+     */
     private boolean testLineJSONObject(String line) {
         return line.endsWith("{") && line.contains(":");
     }
 
+    /**
+     * Tests if line is a beginning of JSONArray.
+     * @param line to check.
+     * @return True if line is beginning JSONArray. False if not.
+     */
     private boolean testLineJSONArray(String line) {
         line = line.trim();
 
