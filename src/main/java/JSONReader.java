@@ -62,12 +62,10 @@ public class JSONReader {
     }
 
     private JSONObject linesToJSONObject(ArrayList<String> list, int currentLine, int checkLength) {
-        JSONObject object = new JSONObject();
-
         String objectKey = list.get(currentLine).split(":")[0].trim();
         objectKey = objectKey.substring(0,objectKey.length()-1);
         objectKey = objectKey.substring(1);
-        object.setKey(objectKey);
+        JSONObject object = new JSONObject(objectKey);
 
         for(int i = currentLine+1; i <= currentLine + checkLength; i++) {
 
