@@ -142,7 +142,7 @@ public class JSONReader {
                 if(arraysFound > 0) {
                     arraysFound--;
                 }else {
-                    return i - currentLine + 1;
+                    return i - currentLine;
                 }
 
             }
