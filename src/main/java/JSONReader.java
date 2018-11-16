@@ -2,6 +2,13 @@ import java.io.*;
 import java.util.ArrayList;
 import JSONComponent.*;
 
+/**
+ * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @version     2018.1116
+ * @since       1.8
+ *
+ * Reads JSON file and creates JSONFileData from it.
+ */
 public class JSONReader {
     public ArrayList<String> readFileToArrayList(File file) {
         ArrayList<String> list = new ArrayList<>();
