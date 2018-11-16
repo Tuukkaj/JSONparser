@@ -54,11 +54,7 @@ public class JSONReader {
     }
 
     private boolean testLineJSONObjectComponent(String line) {
-        if(line.contains(":")) {
-            return true;
-        }
-
-        return false;
+        return line.contains(":");
     }
 
     private JSONObject linesToJSONObject(ArrayList<String> list, int currentLine, int checkLength) {
@@ -100,11 +96,7 @@ public class JSONReader {
     }
 
     private boolean testIfDataIsObject(String data) {
-        if(data.equals("{") | data.endsWith("{")) {
-            return true;
-        }
-
-        return false;
+        return data.equals("{") | data.endsWith("{");
     }
 
     private int determineJSONObjectSize(ArrayList<String> list, int currentLine) {
@@ -187,7 +179,7 @@ public class JSONReader {
             }
         }
 
-        itemArrayList.forEach(a -> jsonArray.add(a));
+        itemArrayList.forEach(jsonArray::add);
 
         return jsonArray;
     }
@@ -218,8 +210,7 @@ public class JSONReader {
             key = key.substring(0,key.length()-1);
         }
 
-        JSONItem item = new JSONItem(key, data);
-        return item;
+        return new JSONItem(key, data);
     }
 
     private boolean testLineJSONItem(String line) {
@@ -243,11 +234,7 @@ public class JSONReader {
     }
 
     private boolean testLineJSONObject(String line) {
-        if(line.endsWith("{") && line.contains(":")) {
-            return true;
-        }
-
-        return false;
+        return line.endsWith("{") && line.contains(":");
     }
 
     private boolean testLineJSONArray(String line) {
@@ -258,6 +245,7 @@ public class JSONReader {
         } else if(line.trim().endsWith("[],") | line.trim().endsWith("[]")) {
             return true;
         }
+
         return false;
     }
 }
