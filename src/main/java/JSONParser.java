@@ -1,6 +1,7 @@
 import JSONComponent.*;
 
 import java.io.File;
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -65,12 +66,11 @@ class JSONParser {
 
         writer = new JSONWriter();
         writer.print(fd);
-        System.out.println("#END OF FILE");
         reader = new JSONReader();
 
-        JSONFileData temp = reader.readFile(new File("JSONWritingTests/test3.json"));
+        //JSONFileData temp = reader.readFile(new File("JSONWritingTests/test3.json"));
         //writer.print(temp);
-        writer.write(temp, new File(("JSONWritingTests/test2.json")));
+        //writer.write(temp, new File(("JSONWritingTests/test2.json")));
     }
 
     public JSONItem createJSONItem(String key, Object data) {

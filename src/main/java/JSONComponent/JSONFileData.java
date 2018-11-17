@@ -1,5 +1,6 @@
 package JSONComponent;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -43,6 +44,10 @@ public class JSONFileData {
      * @return JSONComponent from JSONFileData's LinkedHashMap.
      */
     public JSONComponent getComponent(String key) {
+        if(!map.keySet().contains(key)) {
+            throw new InvalidParameterException("Data with key: " + key + " was not found");
+        }
+
         return map.get(key);
     }
 
@@ -59,6 +64,10 @@ public class JSONFileData {
      * @param key to remove value.
      */
     public void remove(String key) {
+        if(!map.keySet().contains(key)) {
+            throw new InvalidParameterException("Data with key: " + key + " was not found");
+        }
+
         map.remove(key);
     }
 
