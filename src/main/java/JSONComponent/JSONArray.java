@@ -43,7 +43,6 @@ public class JSONArray extends JSONComponent{
         ArrayList<LinkedHashMap<String, Object>> mapArray = new ArrayList<>();
 
         list.forEach(jsonArrayComponent -> mapArray.add(jsonArrayComponent.getLinkedHashMap()));
-        System.out.println(mapArray);
         return mapArray;
     }
 
