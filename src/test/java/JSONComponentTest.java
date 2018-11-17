@@ -93,6 +93,8 @@ public class JSONComponentTest {
         Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("stringItem"), "testString");
         Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("intItem"), 12);
         Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("booleanItem"), false);
+        Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("objectTest"), innerObject);
+        Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("arrayTest"), innerArray);
 
         Assert.assertEquals(((JSONItem)testFileData.getComponent("nullItem")).getData(), null);
         Assert.assertEquals(((JSONItem)testFileData.getComponent("stringItem")).getData(), "testString");
