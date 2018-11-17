@@ -85,4 +85,27 @@ public class JSONComponentTest {
         Assert.assertEquals(testLinkedHashMap.get("objectTest"),innerObject);
         Assert.assertEquals(testLinkedHashMap.get("arrayTest"),innerArray);
     }
+
+
+    @Test
+    public void JSONFileTest() {
+        Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("nullItem"), null);
+        Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("stringItem"), "testString");
+        Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("intItem"), 12);
+        Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("booleanItem"), false);
+
+        Assert.assertEquals(((JSONItem)testFileData.getComponent("nullItem")).getData(), null);
+        Assert.assertEquals(((JSONItem)testFileData.getComponent("stringItem")).getData(), "testString");
+        Assert.assertEquals(((JSONItem)testFileData.getComponent("intItem")).getData(), 12);
+        Assert.assertEquals(((JSONItem)testFileData.getComponent("booleanItem")).getData(), false);
+
+        LinkedHashMap arraysHashMap = ((JSONArray)testFileData.getComponent("testArray")).getLinkedHashMap().get(0);
+        Assert.assertEquals(arraysHashMap.get("nullItem"), null);
+        Assert.assertEquals(arraysHashMap.get("intItem"), 12);
+        Assert.assertEquals(arraysHashMap.get("booleanItem"), false);
+        Assert.assertEquals(arraysHashMap.get("stringItem"), "testString");
+        Assert.assertEquals(arraysHashMap.get("arrayTest"), innerArray);
+        Assert.assertEquals(arraysHashMap.get("objectTest"), innerObject);
+
+    }
 }
