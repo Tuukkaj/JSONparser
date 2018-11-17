@@ -17,7 +17,7 @@ public class JSONFileData {
     /**
      * LinkedHashMap of keys and JSONComponents. Holds all of the JSONItem's, JSONObject's and JSONArray of the JSONFile.
      */
-    LinkedHashMap<String, JSONComponent> map;
+    private LinkedHashMap<String, JSONComponent> map;
 
     /**
      * Constructor of the class. Initializes JSONFileData's LinkedHashMap.
@@ -27,7 +27,8 @@ public class JSONFileData {
     }
 
     /**
-     * Goes through JSONFileData's LinkedHashMap and creates ArrayList of JSONComponents.
+     * Goes through JSONFileData's LinkedHashMap and creates ArrayList of JSONComponents. Throws
+     * InvalidParameterException if key is not found.
      * @return ArrayList<JSONComponent> from JSONFileData's LinkedHashMap.
      */
     public ArrayList<JSONComponent> getComponents() {
@@ -60,7 +61,7 @@ public class JSONFileData {
     }
 
     /**
-     * Removes key's value from JSONFileData's LinkedHashMap.
+     * Removes key's value from JSONFileData's LinkedHashMap. Throws InvalidParameterException if key is not found.
      * @param key to remove value.
      */
     public void remove(String key) {
