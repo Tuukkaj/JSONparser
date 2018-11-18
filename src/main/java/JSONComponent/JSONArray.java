@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * JSONArray can store JSONItem's, JSONObject's and other JSONObject's. Used by JSONFileData.
+ * JSONArray can store JSONItem's, JSONObject's and other JSONArray's. Used by JSONFileData.
  * Holds inner class JSONArrayComponent.
  *
  * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>

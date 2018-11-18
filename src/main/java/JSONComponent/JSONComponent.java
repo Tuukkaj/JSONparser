@@ -3,7 +3,7 @@ package JSONComponent;
 /**
  * Base class for all of the JSONFiles.
  *
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
  */
@@ -15,7 +15,7 @@ public abstract class JSONComponent {
 
     /**
      * Builds JSONObjects data to String format.
-     * @return
+     * @return ready to print String of the JSONComponent.
      */
     abstract String buildToString();
 

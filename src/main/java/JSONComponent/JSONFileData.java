@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Holds information of the JSON file.
  *
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @author      Tuukka Juusela
  * @version     2018.1116
  * @since       1.8
  */
