@@ -6,15 +6,35 @@ import org.junit.AfterClass;
 
 import java.util.ArrayList;
 
+/**
+ * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @version     2018.1118
+ * @since       1.8
+ *
+ * Tests Writing data.
+ */
 public class JSONWritingTest {
+    /**
+     * JSONFileData where data is put.
+     */
     private static JSONFileData fd;
+
+    /**
+     * Expected output of the JSONFileData.
+     */
     private static String correctOutPut;
 
+    /**
+     * Tests JSONFileData buildToString().
+     */
     @Test
     public void buildToStringTest() {
         Assert.assertTrue(fd.buildToString().equals(correctOutPut));
     }
 
+    /**
+     * Compiles given data to a JSONFile and creates String for expected output.
+     */
     @BeforeClass
     public static void beforeClass() {
         fd = new JSONFileData();
@@ -159,6 +179,9 @@ public class JSONWritingTest {
                 "}\n";
     }
 
+    /**
+     * Sets String correctOutPut and JSONFileData fd to null.
+     */
     @AfterClass
     public static void afterClass() {
         correctOutPut = null;
