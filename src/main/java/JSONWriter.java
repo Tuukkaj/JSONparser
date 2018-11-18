@@ -34,7 +34,7 @@ public class JSONWriter {
 
     /**
      * Prints JSONFileData. Simulates writing to a file.
-     * @param file
+     * @param file JSONFileData data to print.
      */
     public void print(JSONFileData file) {
         System.out.println(file.buildToString());
