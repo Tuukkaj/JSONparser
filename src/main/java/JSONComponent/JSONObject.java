@@ -19,6 +19,7 @@ public class JSONObject extends JSONComponent {
 
     /**
      * Constructor of the class. Sets Objects key.
+     * @param key of the JSONObject in JSONFileData.
      */
     public JSONObject(String key) {
         table = new LinkedHashMap<>();
@@ -28,7 +29,7 @@ public class JSONObject extends JSONComponent {
     /**
      * Returns key's value from JSONObject's LinkedHashMap.
      * @param key to get value from LinkedHashMap.
-     * @return
+     * @return Object from JSONObject's LinkedHashMap.
      */
     public Object getObject(String key) {
         return table.get(key);
@@ -46,7 +47,7 @@ public class JSONObject extends JSONComponent {
 
     /**
      * Removes key's value from JSONObject's LinkedHashMap.
-     * @param key
+     * @param key to remove value from JSONObject's LinkedHashMap.
      */
     public void remove(String key) {
         table.remove(key);

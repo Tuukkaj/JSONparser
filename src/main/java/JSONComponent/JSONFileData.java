@@ -29,7 +29,7 @@ public class JSONFileData {
     /**
      * Goes through JSONFileData's LinkedHashMap and creates ArrayList of JSONComponents. Throws
      * InvalidParameterException if key is not found.
-     * @return ArrayList<JSONComponent> from JSONFileData's LinkedHashMap.
+     * @return ArrayList of JSONComponents from JSONFileData's LinkedHashMap.
      */
     public ArrayList<JSONComponent> getComponents() {
         ArrayList<JSONComponent> componentList = new ArrayList<>();

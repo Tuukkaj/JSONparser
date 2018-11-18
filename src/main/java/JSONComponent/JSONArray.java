@@ -8,7 +8,7 @@ import java.util.List;
  * JSONArray can store JSONItem's, JSONObject's and other JSONArray's. Used by JSONFileData.
  * Holds inner class JSONArrayComponent.
  *
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
  */
@@ -20,7 +20,7 @@ public class JSONArray extends JSONComponent{
 
     /**
      * Constructor for the class. Sets key of the JSONArray.
-     * @param key
+     * @param key Key of the JSONArray.
      */
     public JSONArray(String key) {
         setKey(key);
