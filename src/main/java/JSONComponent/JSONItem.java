@@ -39,9 +39,38 @@ public class JSONItem extends JSONComponent {
             } else if (((String) data).matches("[-+]?[0-9]*\\.?[0-9]+")) {
                 data = Float.parseFloat((String) data);
             }
+        } else if(!checkForCorrectValue(data)) {
+            throw new IllegalArgumentException("JSON Only accepts String, integer, float, boolean, null, JSONObjects or" +
+                    " JSONArrays.");
         }
 
         this.data = data;
+    }
+
+    private boolean checkForCorrectValue(Object data) {
+        if(data instanceof Float) {
+            return true;
+
+        } else if(data instanceof Double) {
+            return true;
+
+        } else if(data instanceof Boolean) {
+            return true;
+
+        } else if(data instanceof Integer) {
+            return true;
+
+        } else if(data instanceof JSONObject) {
+            return true;
+
+        } else if(data instanceof JSONArray) {
+            return true;
+
+        } else if(data == null) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
