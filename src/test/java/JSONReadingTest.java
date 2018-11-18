@@ -14,7 +14,6 @@ import java.io.File;
  * Tests JSONReader for correctly reading data.
  */
 public class JSONReadingTest {
-    private static JSONReader reader;
     private static JSONFileData fd;
 
     /**
@@ -41,7 +40,6 @@ public class JSONReadingTest {
      */
     @BeforeClass
     public static void beforeClass() {
-        reader = new JSONReader();
-        fd = reader.readFile(new File("src/test/java/exampleJSON.json"));
+        fd = new JSONReader().readFile(new File("src/test/java/exampleJSON.json"));
     }
 }
