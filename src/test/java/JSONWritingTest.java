@@ -4,19 +4,17 @@ import org.junit.*;
 import java.util.ArrayList;
 
 public class JSONWritingTest {
-    private static JSONWriter writer;
     private static JSONFileData fd;
+    private static String correctOutPut;
 
     @Test
     public void buildToStringTest() {
-
+        Assert.assertTrue(fd.buildToString().equals(correctOutPut));
     }
 
     @BeforeClass
     public static void beforeClass() {
-        writer = new JSONWriter();
-
-        JSONFileData fd = new JSONFileData();
+        fd = new JSONFileData();
         fd.add(new JSONItem("name", "Tuukka"));
         fd.add(new JSONItem("city", "tre"));
 
@@ -63,10 +61,104 @@ public class JSONWritingTest {
         petArray.add(JSONItemList);
         petArray.add(new JSONItem("object3", object3));
         array.add(new JSONItem("petArray", petArray));
+
+        correctOutPut = "{\n" +
+                "  \"name\": \"Tuukka\",\n" +
+                "  \"city\": \"tre\",\n" +
+                "  \"age\": 21,\n" +
+                "  \"alive\": true,\n" +
+                "  \"willToLive\": null,\n" +
+                "  \"emailAddresses\": {\n" +
+                "    \"school\": \"cool.email@tamk.fi\",\n" +
+                "    \"personal\": \"wow.last@hotmail.com\",\n" +
+                "    \"hobby\": \"hirvi@kaijakoo.fi\",\n" +
+                "    \"DifferentObject\" : {\n" +
+                "      \"Third\": 3,\n" +
+                "      \"Second\": 2,\n" +
+                "      \"first\": 1\n" +
+                "    }\n" +
+                "  },\n" +
+                "  \"PhoneNumbers\": [\n" +
+                "    {\n" +
+                "      \"type\": \"work\",\n" +
+                "      \"number\": 654123\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"type\": \"home\",\n" +
+                "      \"number\": 12123123\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"type\": \"mobile\",\n" +
+                "      \"number\": 987654321\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"petArray\" : [\n" +
+                "        {\n" +
+                "          \"product\": 1,\n" +
+                "          \"color\": \"orange\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "          \"object3\" : {\n" +
+                "            \"Third\": 3,\n" +
+                "            \"Second\": 2,\n" +
+                "            \"first\": 1\n" +
+                "          }\n" +
+                "        }\n" +
+                "      ]\n" +
+                "    }\n" +
+                "  ],\n" +
+                "  \"ObjectInObject\": {\n" +
+                "    \"firstTest\" : {\n" +
+                "      \"school\": \"cool.email@tamk.fi\",\n" +
+                "      \"personal\": \"wow.last@hotmail.com\",\n" +
+                "      \"hobby\": \"hirvi@kaijakoo.fi\",\n" +
+                "      \"DifferentObject\" : {\n" +
+                "        \"Third\": 3,\n" +
+                "        \"Second\": 2,\n" +
+                "        \"first\": 1\n" +
+                "      }\n" +
+                "    },\n" +
+                "    \"secondTest\" : [\n" +
+                "      {\n" +
+                "        \"type\": \"work\",\n" +
+                "        \"number\": 654123\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"type\": \"home\",\n" +
+                "        \"number\": 12123123\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"type\": \"mobile\",\n" +
+                "        \"number\": 987654321\n" +
+                "      },\n" +
+                "      {\n" +
+                "        \"petArray\" : [\n" +
+                "          {\n" +
+                "            \"product\": 1,\n" +
+                "            \"color\": \"orange\"\n" +
+                "          },\n" +
+                "          {\n" +
+                "            \"object3\" : {\n" +
+                "              \"Third\": 3,\n" +
+                "              \"Second\": 2,\n" +
+                "              \"first\": 1\n" +
+                "            }\n" +
+                "          }\n" +
+                "        ]\n" +
+                "      }\n" +
+                "    ],\n" +
+                "    \"objecterino\" : {\n" +
+                "      \"Third\": 3,\n" +
+                "      \"Second\": 2,\n" +
+                "      \"first\": 1\n" +
+                "    }\n" +
+                "  }\n" +
+                "}\n";
     }
 
     @AfterClass
     public static void afterClass() {
-        writer = null;
+        correctOutPut = null;
+        fd = null;
     }
 }
