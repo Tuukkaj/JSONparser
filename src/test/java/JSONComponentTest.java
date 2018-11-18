@@ -25,11 +25,11 @@ public class JSONComponentTest {
         stringItem = new JSONItem("stringItem", "testString");
         intItem = new JSONItem("intItem", 12);
         booleanItem = new JSONItem("booleanItem", false);
-        objectItem = new JSONItem("objectItem", intItem);
         testObject = new JSONObject("testObject");
         testArray = new JSONArray("testArray");
         innerObject = new JSONObject("testInnerObject");
         innerArray = new JSONArray("testInnerArray");
+        objectItem = new JSONItem("objectItem", innerObject);
 
         testObject.add(nullItem);
         testObject.add(stringItem);
@@ -61,7 +61,7 @@ public class JSONComponentTest {
         Assert.assertEquals(stringItem.getData(),"testString");
         Assert.assertEquals(nullItem.getData(), null);
         Assert.assertEquals(intItem.getData(), 12);
-        Assert.assertEquals(objectItem.getData(), intItem);
+        Assert.assertEquals(objectItem.getData(), innerObject);
         Assert.assertEquals(booleanItem.getData(),false);
     }
 
