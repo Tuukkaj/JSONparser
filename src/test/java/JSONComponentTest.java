@@ -1,8 +1,11 @@
 import JSONComponent.JSONArray;
 import JSONComponent.JSONFileData;
 import JSONComponent.JSONObject;
-import org.junit.*;
 import JSONComponent.JSONItem;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.Assert;
+
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
