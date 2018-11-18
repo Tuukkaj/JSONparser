@@ -6,22 +6,71 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Assert;
 
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+/**
+ * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @version     2018.1118
+ * @since       1.8
+ *
+ * Tests JSONComponents.
+ */
 public class JSONComponentTest {
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONItem nullItem;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONItem stringItem ;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONItem intItem;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONItem booleanItem;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONItem objectItem;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONObject testObject;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONArray testArray;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONFileData testFileData;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONObject innerObject;
+    /**
+     * JSONComponent for testing.
+     *
+     */
     private static JSONArray innerArray;
 
+    /**
+     * Creates test JSONComponents.
+     */
     @BeforeClass
     public static void beforeClass() {
         nullItem = new JSONItem("nullItem", null);
@@ -59,6 +108,9 @@ public class JSONComponentTest {
         testFileData.add(testArray);
     }
 
+    /**
+     * Tests JSONItem.
+     */
     @Test
     public void JSONItemTest() {
         Assert.assertEquals(stringItem.getData(),"testString");
@@ -68,6 +120,9 @@ public class JSONComponentTest {
         Assert.assertEquals(booleanItem.getData(),false);
     }
 
+    /**
+     * Tests JSONObject.
+     */
     @Test
     public void JSONObjectTest() {
         Assert.assertEquals(testObject.getObject("intItem"),12);
@@ -78,6 +133,9 @@ public class JSONComponentTest {
         Assert.assertEquals(testObject.getObject("arrayTest"),innerArray);
     }
 
+    /**
+     * Tests JSONArray.
+     */
     @Test
     public void JSONArrayTest() {
         LinkedHashMap testLinkedHashMap = testArray.getLinkedHashMap().get(0);
@@ -89,7 +147,9 @@ public class JSONComponentTest {
         Assert.assertEquals(testLinkedHashMap.get("arrayTest"),innerArray);
     }
 
-
+    /**
+     * Tests JSONFileData.
+     */
     @Test
     public void JSONFileTest() {
         Assert.assertEquals(((JSONObject) testFileData.getComponent("testObject")).getObject("nullItem"), null);
