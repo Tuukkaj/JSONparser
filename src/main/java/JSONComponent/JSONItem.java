@@ -17,7 +17,8 @@ public class JSONItem extends JSONComponent {
      * Constructor for the class. Sets key and data of the item .
      *
      * Sets key of JSONItem which is used in JSONFileData. Checks data's type if data is instance of String and
-     * sets it to a correct value.
+     * sets it to a correct value. Throws IllegalArgumentException if data is not String, integer, float, double,
+     * boolean, null, JSONObject or JSONArray.
      *
      * @param key Key of the JSONItem.
      * @param data Data of the JSONItem.
@@ -47,6 +48,14 @@ public class JSONItem extends JSONComponent {
         this.data = data;
     }
 
+    /**
+     * Tests if data is acceptable.
+     *
+     * Tests for Float, Double, Boolean, Integer, JSONObject, JSONArray and null.
+     *
+     * @param data to test.
+     * @return true if data is acceptable. False if not.
+     */
     private boolean checkForCorrectValue(Object data) {
         if(data instanceof Float) {
             return true;
