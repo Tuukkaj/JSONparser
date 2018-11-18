@@ -5,10 +5,21 @@ import org.junit.Test;
 
 import java.io.File;
 
+
+/**
+ * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * @version     2018.1118
+ * @since       1.8
+ *
+ * Tests JSONReader for correctly reading data.
+ */
 public class JSONReadingTest {
     private static JSONReader reader;
     private static JSONFileData fd;
 
+    /**
+     * Test for getting data from fd.
+     */
     @Test
     public void testDataGetting() {
         Assert.assertEquals(((JSONItem)fd.getComponent("firstName")).getData(), "John");
@@ -25,6 +36,9 @@ public class JSONReadingTest {
         Assert.assertTrue(fd.getComponent("children") instanceof JSONArray);
     }
 
+    /**
+     * Reads file to JSONFileData.
+     */
     @BeforeClass
     public static void beforeClass() {
         reader = new JSONReader();
