@@ -84,7 +84,7 @@ public class JSONItem extends JSONComponent {
 
     /**
      * Returns data of the JSONItem.
-     * @return
+     * @return JSONItems data.
      */
     public Object getData() {
         return data;
