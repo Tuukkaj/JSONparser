@@ -3,12 +3,13 @@ package JSONComponent;
 import java.util.LinkedHashMap;
 
 /**
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * JSONObject can store JSONItems, JSONArrays and other JSONObjects.
+ * Used by JSONFileData.
+ *
+ * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
  *
- * JSONObject can store JSONItems, JSONArrays and other JSONObjects.
- * Used by JSONFileData.
  */
 public class JSONObject extends JSONComponent {
     /**

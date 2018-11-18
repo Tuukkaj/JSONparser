@@ -1,11 +1,11 @@
 package JSONComponent;
 
 /**
+ * Base class for all of the JSONFiles.
+ *
  * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
  * @version     2018.1115
  * @since       1.8
- *
- * Base class for all of the JSONFiles.
  */
 public abstract class JSONComponent {
     /**

@@ -1,11 +1,11 @@
 package JSONComponent;
 
 /**
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * Base item of JSONFiles. Used by JSONFileData to hold data and by JSONObject and JSONArray to add and hold data.
+ *
+ * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
- *
- * Base item of JSONFiles. Used by JSONFileData to hold data and by JSONObject and JSONArray to add and hold data.
  */
 public class JSONItem extends JSONComponent {
     /**

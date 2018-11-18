@@ -6,11 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * Writer class. Used to write files.
+ *
+ * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
  *
- * Writer class. Used to write files.
  */
 public class JSONWriter {
     /**
