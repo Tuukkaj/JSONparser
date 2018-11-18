@@ -1,5 +1,8 @@
 import JSONComponent.*;
-import org.junit.*;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.Assert;
+import org.junit.AfterClass;
 
 import java.util.ArrayList;
 
