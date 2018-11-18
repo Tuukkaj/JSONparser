@@ -7,11 +7,11 @@ import org.junit.AfterClass;
 import java.util.ArrayList;
 
 /**
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * Tests Writing data.
+ *
+ * @author      Tuukka Juusela
  * @version     2018.1118
  * @since       1.8
- *
- * Tests Writing data.
  */
 public class JSONWritingTest {
     /**

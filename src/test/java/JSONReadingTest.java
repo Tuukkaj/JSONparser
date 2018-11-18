@@ -7,11 +7,11 @@ import java.io.File;
 
 
 /**
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * Tests JSONReader for correctly reading data.
+ *
+ * @author      Tuukka Juusela
  * @version     2018.1118
  * @since       1.8
- *
- * Tests JSONReader for correctly reading data.
  */
 public class JSONReadingTest {
     /**

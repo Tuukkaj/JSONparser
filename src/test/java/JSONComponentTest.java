@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 /**
- * @author      Tuukka Juusela <tuukka.juusela@cs.tamk.fi>
+ * Tests JSONComponents.
+ *
+ * @author      Tuukka Juusela
  * @version     2018.1118
  * @since       1.8
- *
- * Tests JSONComponents.
  */
 public class JSONComponentTest {
     /**
