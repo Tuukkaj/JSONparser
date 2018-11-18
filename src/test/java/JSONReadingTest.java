@@ -6,8 +6,8 @@ import org.junit.Test;
 import java.io.File;
 
 public class JSONReadingTest {
-    public static JSONReader reader;
-    public static JSONFileData fd;
+    private static JSONReader reader;
+    private static JSONFileData fd;
 
     @Test
     public void testDataGetting() {
