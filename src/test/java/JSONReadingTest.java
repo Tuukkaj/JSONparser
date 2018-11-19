@@ -99,7 +99,7 @@ public class JSONReadingTest {
     }
 
     /**
-     * Reads test1.json to JSONFileData.
+     * Reads test1.json and test2.json to JSONFileData.
      */
     @BeforeClass
     public static void beforeClass() {
