@@ -51,20 +51,17 @@ public class JSONReadingTest {
     }
 
     @Test
-    public void secondTest() {
-        Assert.assertEquals(((JSONItem) secondTest.getComponent("name")).getData(), "Tuukka");
-        Assert.assertEquals(((JSONItem) secondTest.getComponent("city")).getData(), "tre");
-        Assert.assertEquals(((JSONItem) secondTest.getComponent("age")).getData(), 21);
-        Assert.assertEquals(((JSONItem) secondTest.getComponent("alive")).getData(), true);
-        Assert.assertEquals(((JSONItem) secondTest.getComponent("willToLive")).getData(), null);
-
-        Assert.assertEquals(((JSONObject) secondTest.getComponent("emailAddresses")).getObject("school"), "cool.email@tamk.fi");
-        Assert.assertEquals(((JSONObject)((JSONObject) secondTest.getComponent("emailAddresses")).getObject("DifferentObject")).getObject("Third"), 3);
-        Assert.assertEquals(((JSONObject)((JSONObject) secondTest.getComponent("emailAddresses")).getObject("DifferentObject")).getObject("First"), 1);
-
+    public void secondTestArrays() {
         Assert.assertEquals(((JSONArray) secondTest.getComponent("PhoneNumbers")).getLinkedHashMap().get(1).get("type"), "home");
         Assert.assertEquals(((JSONArray)((JSONArray) secondTest.getComponent("PhoneNumbers")).getLinkedHashMap().get(3).get("petArray")).getLinkedHashMap().get(0).get("color"), "orange");
         Assert.assertEquals(((JSONObject)((JSONArray)((JSONArray) secondTest.getComponent("PhoneNumbers")).getLinkedHashMap().get(3).get("petArray")).getLinkedHashMap().get(1).get("object3")).getObject("Second"), 2);
+    }
+
+    @Test
+    public void secondTestObjects() {
+        Assert.assertEquals(((JSONObject) secondTest.getComponent("emailAddresses")).getObject("school"), "cool.email@tamk.fi");
+        Assert.assertEquals(((JSONObject)((JSONObject) secondTest.getComponent("emailAddresses")).getObject("DifferentObject")).getObject("Third"), 3);
+        Assert.assertEquals(((JSONObject)((JSONObject) secondTest.getComponent("emailAddresses")).getObject("DifferentObject")).getObject("First"), 1);
 
         Assert.assertEquals(((JSONObject)((JSONObject)((JSONObject) secondTest.getComponent("ObjectInObject")).getObject("firstTest")).getObject("DifferentObject")).getObject("false"), false);
         Assert.assertEquals(((JSONObject)((JSONObject)((JSONObject) secondTest.getComponent("ObjectInObject")).getObject("firstTest")).getObject("DifferentObject")).getObject("true"), true);
@@ -74,6 +71,15 @@ public class JSONReadingTest {
         Assert.assertEquals(((JSONObject)((JSONArray)((JSONArray)((JSONObject)secondTest.getComponent("ObjectInObject")).getObject("secondTest")).getLinkedHashMap().get(3).get("petArray")).getLinkedHashMap().get(1).get("object3")).getObject("speed"),14.2f);
 
         Assert.assertEquals(((JSONObject)((JSONObject)secondTest.getComponent("ObjectInObject")).getObject("TestObject")).getObject("3"),3);
+    }
+
+    @Test
+    public void secondTestItems() {
+        Assert.assertEquals(((JSONItem) secondTest.getComponent("name")).getData(), "Tuukka");
+        Assert.assertEquals(((JSONItem) secondTest.getComponent("city")).getData(), "tre");
+        Assert.assertEquals(((JSONItem) secondTest.getComponent("age")).getData(), 21);
+        Assert.assertEquals(((JSONItem) secondTest.getComponent("alive")).getData(), true);
+        Assert.assertEquals(((JSONItem) secondTest.getComponent("willToLive")).getData(), null);
     }
 
     /**
