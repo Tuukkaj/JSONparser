@@ -25,7 +25,7 @@ public class JSONReadingTest {
     private static JSONFileData secondTest;
 
     /**
-     * Test for getting data from firstTest.
+     * Test for getting arrays created from test1.json.
      */
     @Test
     public void firstTestArrays() {
@@ -36,6 +36,9 @@ public class JSONReadingTest {
         Assert.assertTrue(firstTest.getComponent("children") instanceof JSONArray);
     }
 
+    /**
+     * Test for getting items created from test1.json.
+     */
     @Test
     public void firstTestItems() {
         Assert.assertEquals(((JSONItem) firstTest.getComponent("firstName")).getData(), "John");
@@ -45,11 +48,18 @@ public class JSONReadingTest {
         Assert.assertEquals(((JSONItem) firstTest.getComponent("spouse")).getData(), null);
     }
 
-    @Test public void firstTestObjects() {
+    /**
+     * Test for getting objects created from test1.json.
+     */
+    @Test
+    public void firstTestObjects() {
         Assert.assertEquals(((JSONObject) firstTest.getComponent("address")).getObject("city"), "New York");
         Assert.assertEquals(((JSONObject) firstTest.getComponent("address")).getObject("state"), "NY");
     }
 
+    /**
+     * Test for getting arrays created from test2.json.
+     */
     @Test
     public void secondTestArrays() {
         Assert.assertEquals(((JSONArray) secondTest.getComponent("PhoneNumbers")).getLinkedHashMap().get(1).get("type"), "home");
@@ -57,6 +67,9 @@ public class JSONReadingTest {
         Assert.assertEquals(((JSONObject)((JSONArray)((JSONArray) secondTest.getComponent("PhoneNumbers")).getLinkedHashMap().get(3).get("petArray")).getLinkedHashMap().get(1).get("object3")).getObject("Second"), 2);
     }
 
+    /**
+     * Test for getting objects created from test2.json.
+     */
     @Test
     public void secondTestObjects() {
         Assert.assertEquals(((JSONObject) secondTest.getComponent("emailAddresses")).getObject("school"), "cool.email@tamk.fi");
@@ -73,6 +86,9 @@ public class JSONReadingTest {
         Assert.assertEquals(((JSONObject)((JSONObject)secondTest.getComponent("ObjectInObject")).getObject("TestObject")).getObject("3"),3);
     }
 
+    /**
+     * Test for getting items created from test2.json.
+     */
     @Test
     public void secondTestItems() {
         Assert.assertEquals(((JSONItem) secondTest.getComponent("name")).getData(), "Tuukka");
