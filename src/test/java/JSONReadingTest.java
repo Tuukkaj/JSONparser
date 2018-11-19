@@ -49,6 +49,6 @@ public class JSONReadingTest {
     @BeforeClass
     public static void beforeClass() {
         firstTest = new JSONReader().readFile(new File("src/test/java/test1.json"));
-        secondTest = new JSONReader().readFile(new File("src/test/java/testJSONFileData.json"));
+        secondTest = new JSONReader().readFile(new File("src/test/java/test2.json"));
     }
 }

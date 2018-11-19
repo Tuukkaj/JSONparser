@@ -15,7 +15,7 @@ class JSONParser {
         System.out.println("Author: Tuukka Juusela <tuukka.juusela@cs.tamk.fi>");
 
         //TEST FILE CREATION
-       /* JSONFileData fd = new JSONFileData();
+       JSONFileData fd = new JSONFileData();
         fd.add(new JSONItem("name", "Tuukka"));
         fd.add(new JSONItem("city", "tre"));
 
@@ -61,13 +61,14 @@ class JSONParser {
         JSONArray petArray = new JSONArray("petArray");
         petArray.add(JSONItemList);
         petArray.add(new JSONItem("object3", object3));
-        array.add(new JSONItem("petArray", petArray));*/
+        array.add(new JSONItem("petArray", petArray));
 
 
         writer = new JSONWriter();
-        //writer.write(fd,new File("JSONWritingTests/test.json"));
+        writer.write(fd,new File("JSONWritingTests/testJSONFileData.json"));
+        writer.print(fd);
         reader = new JSONReader();
-        writer.print(reader.readFile(new File("src/test/java/exampleJSON.json")));
+        //writer.print(reader.readFile(new File("src/test/java/exampleJSON.json")));
 
         //JSONFileData temp = reader.readFile(new File("JSONWritingTests/test3.json"));
         //writer.print(temp);
