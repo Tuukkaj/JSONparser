@@ -15,7 +15,7 @@ import java.io.File;
  */
 public class JSONReadingTest {
     /**
-     * JSONFileData where exampleJSON.json is read using JSONReader.
+     * JSONFileData where test1.json is read using JSONReader.
      */
     private static JSONFileData firstTest;
 
@@ -44,11 +44,11 @@ public class JSONReadingTest {
     }
 
     /**
-     * Reads exampleJSON.json to JSONFileData.
+     * Reads test1.json to JSONFileData.
      */
     @BeforeClass
     public static void beforeClass() {
-        firstTest = new JSONReader().readFile(new File("src/test/java/exampleJSON.json"));
+        firstTest = new JSONReader().readFile(new File("src/test/java/test1.json"));
         secondTest = new JSONReader().readFile(new File("src/test/java/testJSONFileData.json"));
     }
 }
