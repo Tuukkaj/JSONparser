@@ -1,0 +1,92 @@
+{
+  "name": "Tuukka",
+  "city": "tre",
+  "age": 21,
+  "alive": true,
+  "willToLive": null,
+  "emailAddresses": {
+    "school": "cool.email@tamk.fi",
+    "personal": "wow.last@hotmail.com",
+    "hobby": "hirvi@kaijakoo.fi",
+    "DifferentObject" : {
+      "Third": 3,
+      "Second": 2,
+      "first": 1
+    }
+  },
+  "PhoneNumbers": [
+    {
+      "type": "work",
+      "number": 654123
+    },
+    {
+      "type": "home",
+      "number": 12123123
+    },
+    {
+      "type": "mobile",
+      "number": 987654321
+    },
+    {
+      "petArray" : [
+        {
+          "product": 1,
+          "color": "orange"
+        },
+        {
+          "object3" : {
+            "Third": 3,
+            "Second": 2,
+            "first": 1
+          }
+        }
+      ]
+    }
+  ],
+  "ObjectInObject": {
+    "firstTest" : {
+      "school": "cool.email@tamk.fi",
+      "personal": "wow.last@hotmail.com",
+      "hobby": "hirvi@kaijakoo.fi",
+      "DifferentObject" : {
+        "Third": 3,
+        "Second": 2,
+        "first": 1
+      }
+    },
+    "secondTest" : [
+      {
+        "type": "work",
+        "number": 654123
+      },
+      {
+        "type": "home",
+        "number": 12123123
+      },
+      {
+        "type": "mobile",
+        "number": 987654321
+      },
+      {
+        "petArray" : [
+          {
+            "product": 1,
+            "color": "orange"
+          },
+          {
+            "object3" : {
+              "Third": 3,
+              "Second": 2,
+              "first": 1
+            }
+          }
+        ]
+      }
+    ],
+    "TestObject" : {
+      "3": 3,
+      "2": 2,
+      "1": 1
+    }
+  }
+}
