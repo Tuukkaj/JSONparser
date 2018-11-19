@@ -28,7 +28,7 @@ public class JSONReadingTest {
      * Test for getting data from firstTest.
      */
     @Test
-    public void testDataGetting() {
+    public void firstTest() {
         Assert.assertEquals(((JSONItem) firstTest.getComponent("firstName")).getData(), "John");
         Assert.assertEquals(((JSONItem) firstTest.getComponent("lastName")).getData(), "Smith");
         Assert.assertEquals(((JSONItem) firstTest.getComponent("isAlive")).getData(), true);

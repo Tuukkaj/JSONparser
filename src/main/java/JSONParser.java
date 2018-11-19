@@ -65,8 +65,8 @@ class JSONParser {
 
 
         writer = new JSONWriter();
-        writer.write(fd,new File("JSONWritingTests/testJSONFileData.json"));
-        writer.print(fd);
+        //writer.write(fd,new File("JSONWritingTests/testJSONFileData.json"));
+        //writer.print(fd);
         reader = new JSONReader();
         //writer.print(reader.readFile(new File("src/test/java/exampleJSON.json")));
 
