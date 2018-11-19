@@ -7,7 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * Holds information of the JSON file.
+ * Holds information of the JSON file. User can insert JSONItems, JSONArrays and JSONObjects to this class.
+ * Used to make JSONComponents to String format for the printer to write.
  *
  * @author      Tuukka Juusela
  * @version     2018.1116
