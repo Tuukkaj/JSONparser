@@ -11,7 +11,7 @@
     "DifferentObject" : {
       "Third": 3,
       "Second": 2,
-      "first": 1
+      "First": 1
     }
   },
   "PhoneNumbers": [
@@ -49,9 +49,9 @@
       "personal": "wow.last@hotmail.com",
       "hobby": "hirvi@kaijakoo.fi",
       "DifferentObject" : {
-        "Third": 3,
-        "Second": 2,
-        "first": 1
+        "true": true,
+        "false": false,
+        "null": null
       }
     },
     "secondTest" : [
@@ -75,9 +75,9 @@
           },
           {
             "object3" : {
-              "Third": 3,
-              "Second": 2,
-              "first": 1
+              "speed": 14.2,
+              "type": "bike",
+              "color": "red"
             }
           }
         ]
