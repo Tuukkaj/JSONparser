@@ -1,9 +1,6 @@
 import JSONComponent.*;
 
 import java.io.File;
-import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 import JSONComponent.JSONArray;
 
