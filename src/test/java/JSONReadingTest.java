@@ -103,7 +103,7 @@ public class JSONReadingTest {
      */
     @BeforeClass
     public static void beforeClass() {
-        firstTest = new JSONReader().readFile(new File("src/test/java/test1.json"));
-        secondTest = new JSONReader().readFile(new File("src/test/java/test2.json"));
+        firstTest = new JSONReader().readFile(new File("src/test/java/resources/test1.json"));
+        secondTest = new JSONReader().readFile(new File("src/test/java/resources/test2.json"));
     }
 }
