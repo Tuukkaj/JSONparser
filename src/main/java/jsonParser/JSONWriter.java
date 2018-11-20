@@ -1,4 +1,6 @@
-import JSONComponent.JSONFileData;
+package jsonParser;
+
+import jsonParser.JSONComponent.JSONFileData;
 
 import java.io.BufferedWriter;
 import java.io.File;

@@ -1,6 +1,8 @@
+package jsonParser;
+
 import java.io.*;
 import java.util.ArrayList;
-import JSONComponent.*;
+import jsonParser.JSONComponent.*;
 
 /**
  * Reads JSON file and creates JSONFileData from it.
@@ -80,9 +82,9 @@ public class JSONReader {
     }
 
     /**
-     * Tests if line is some kind of JSONComponent.
+     * Tests if line is some kind of jsonParser.JSONComponent.
      * @param line to determine from.
-     * @return true if line is JSONComponent. False if not.
+     * @return true if line is jsonParser.JSONComponent. False if not.
      */
     private boolean testLineJSONObjectComponent(String line) {
         return line.contains(":");

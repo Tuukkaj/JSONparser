@@ -1,4 +1,4 @@
-package JSONComponent;
+package jsonParser.JSONComponent;
 
 import java.util.LinkedHashMap;
 
@@ -73,7 +73,7 @@ public class JSONObject extends JSONComponent {
     /**
      * Builds JSONObject's data to be written to a file.
      *
-     *  Goes through JSONObject's data and converts it to String. Determines if the data is JSONComponent, String or a
+     *  Goes through JSONObject's data and converts it to String. Determines if the data is jsonParser.JSONComponent, String or a
      *  some other Object. Used by JSONFileData.
      * @return Ready to write String for JSONFileData to use.
      */

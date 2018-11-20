@@ -1,4 +1,4 @@
-import JSONComponent.*;
+import jsonParser.JSONComponent.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Assert;

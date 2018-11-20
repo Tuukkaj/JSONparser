@@ -1,4 +1,4 @@
-package JSONComponent;
+package jsonParser.JSONComponent;
 
 /**
  * Base item of JSONFiles. Used by JSONFileData to hold data and by JSONObject and JSONArray to transfer data.

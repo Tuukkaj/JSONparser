@@ -1,4 +1,4 @@
-package JSONComponent;
+package jsonParser.JSONComponent;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class JSONFileData {
     /**
      * Gets key value from JSONFileData's LinkedHashMap.
      * @param key to get data with.
-     * @return JSONComponent from JSONFileData's LinkedHashMap.
+     * @return jsonParser.JSONComponent from JSONFileData's LinkedHashMap.
      */
     public JSONComponent getComponent(String key) {
         if(!map.keySet().contains(key)) {
@@ -78,7 +78,7 @@ public class JSONFileData {
     }
 
     /**
-     * Adds new JSONComponent to JSONFileData's LinkedHashMap.
+     * Adds new jsonParser.JSONComponent to JSONFileData's LinkedHashMap.
      * @param component to add.
      */
     public void add(JSONComponent component) {

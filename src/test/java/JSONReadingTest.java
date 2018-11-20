@@ -1,4 +1,5 @@
-import JSONComponent.*;
+import jsonParser.JSONComponent.*;
+import jsonParser.JSONParser;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -7,7 +8,7 @@ import java.io.File;
 
 
 /**
- * Tests JSONReader for correctly reading data.
+ * Tests jsonParser.JSONReader for correctly reading data.
  *
  * @author      Tuukka Juusela
  * @version     2018.1118
@@ -15,12 +16,12 @@ import java.io.File;
  */
 public class JSONReadingTest {
     /**
-     * JSONFileData where test1.json is read using JSONReader.
+     * JSONFileData where test1.json is read using jsonParser.JSONReader.
      */
     private static JSONFileData firstTest;
 
     /**
-     * JSONFileData where test2.json is read using JSONReader.
+     * JSONFileData where test2.json is read using jsonParser.JSONReader.
      */
     private static JSONFileData secondTest;
 

@@ -30,7 +30,7 @@
                 <version>1.6.0</version>
                 <configuration>
                     <skip>false</skip>
-                    <mainClass>JSONParser</mainClass>
+                    <mainClass>jsonParser.JSONParser</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -61,7 +61,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>JSONParser</mainClass>
+                            <mainClass>jsonParser.JSONParser</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

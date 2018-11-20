@@ -1,17 +1,19 @@
-import JSONComponent.*;
+package jsonParser;
+
+import jsonParser.JSONComponent.*;
 
 import java.io.File;
 
-import JSONComponent.JSONArray;
+import jsonParser.JSONComponent.JSONArray;
 
 /**
  * Main class of the program. Holds methods for reading and writing JSON files. Also holds methods for creation of
  * JSONComponents that are part of the JSONFileData.
  *<br><br>
- * Using JSONParser for writing: First create JSONFileData and add any JSONComponent(item, object, array) you want.
+ * Using jsonParser.JSONParser for writing: First create JSONFileData and add any jsonParser.JSONComponent(item, object, array) you want.
  * Give JSONFileData and file to write on to write -method.
  *<br><br>
- * Using JSONParser for reading: Give file to read to read -method. It returns JSONFileData created from the file.
+ * Using jsonParser.JSONParser for reading: Give file to read to read -method. It returns JSONFileData created from the file.
  * You can access data of the JSONFileData with JSONFileData's methods getComponent and getComponents.
  *
  * @author Tuukka Juusela
@@ -20,17 +22,17 @@ import JSONComponent.JSONArray;
  */
 public class JSONParser {
     /**
-     * JSONReader used to read JSON files.
+     * jsonParser.JSONReader used to read JSON files.
      */
     private static JSONReader reader;
 
     /**
-     * JSONWriter used to write JSON files.
+     * jsonParser.JSONWriter used to write JSON files.
      */
     private static JSONWriter writer;
 
     /**
-     * Programs main class. Prints authors name and creates JSONWriter and JSONReader.
+     * Programs main class. Prints authors name and creates jsonParser.JSONWriter and jsonParser.JSONReader.
      */
     public JSONParser() {
         System.out.println("Author: Tuukka Juusela <tuukka.juusela@cs.tamk.fi>");

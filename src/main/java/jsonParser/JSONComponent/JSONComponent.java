@@ -1,4 +1,4 @@
-package JSONComponent;
+package jsonParser.JSONComponent;
 
 /**
  * Base class for all of the JSONFiles.
@@ -15,7 +15,7 @@ public abstract class JSONComponent {
 
     /**
      * Builds JSONObjects data to String format.
-     * @return ready to print String of the JSONComponent.
+     * @return ready to print String of the jsonParser.JSONComponent.
      */
     abstract String buildToString();
 

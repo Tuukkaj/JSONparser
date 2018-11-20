@@ -1,7 +1,7 @@
-import JSONComponent.JSONArray;
-import JSONComponent.JSONFileData;
-import JSONComponent.JSONObject;
-import JSONComponent.JSONItem;
+import jsonParser.JSONComponent.JSONArray;
+import jsonParser.JSONComponent.JSONFileData;
+import jsonParser.JSONComponent.JSONObject;
+import jsonParser.JSONComponent.JSONItem;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Assert;
@@ -18,52 +18,52 @@ import java.util.LinkedHashMap;
  */
 public class JSONComponentTest {
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONItem nullItem;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONItem stringItem ;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONItem intItem;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONItem booleanItem;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONItem objectItem;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONObject testObject;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONArray testArray;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONFileData testFileData;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONObject innerObject;
     /**
-     * JSONComponent for testing.
+     * jsonParser.JSONComponent for testing.
      *
      */
     private static JSONArray innerArray;

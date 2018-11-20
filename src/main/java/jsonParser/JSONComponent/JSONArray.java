@@ -1,4 +1,4 @@
-package JSONComponent;
+package jsonParser.JSONComponent;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -79,7 +79,7 @@ public class JSONArray extends JSONComponent{
      * Builds JSONArray's data to be written to a file.
      *
      *  Goes through JSONArrays's ArrayList of JSONArrayComponents and converts it to String.
-     *  Determines if the data is JSONComponent, String or a some other Object.
+     *  Determines if the data is jsonParser.JSONComponent, String or a some other Object.
      * @return Ready to write String for JSONFileData to use.
      */
     public String buildToString() {
@@ -183,7 +183,7 @@ public class JSONArray extends JSONComponent{
          * Builds JSONArrayComponent's data to be written to a file.
          *
          *  Goes through JSONArrayComponent's data and converts it to String. Determines if the data is
-         *  JSONComponent, String or some other Object. Used by JSONArray.
+         *  jsonParser.JSONComponent, String or some other Object. Used by JSONArray.
          * @return Ready to write String for JSONArray to use.
          */
         public String buildToString() {
