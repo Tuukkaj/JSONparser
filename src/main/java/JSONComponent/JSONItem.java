@@ -1,7 +1,14 @@
 package JSONComponent;
 
 /**
- * Base item of JSONFiles. Used by JSONFileData to hold data and by JSONObject and JSONArray to add and hold data.
+ * Base item of JSONFiles. Used by JSONFileData to hold data and by JSONObject and JSONArray to transfer data.
+ *
+ * Example how JSONFileData writes JSONItems to .json file:
+ *
+ * {
+ *  "firstName": "John",
+ *  "lastName": "Smith"
+ * }
  *
  * @author      Tuukka Juusela
  * @version     2018.1115
