@@ -27,10 +27,9 @@ public class JSONParser {
     private static JSONWriter writer;
 
     /**
-     * Main method. Prints authors name and creates JSONWriter and JSONReader.
-     * @param args command line argument. Not in use.
+     * Programs main class. Prints authors name and creates JSONWriter and JSONReader.
      */
-    public static void main(String... args) {
+    public JSONParser() {
         System.out.println("Author: Tuukka Juusela <tuukka.juusela@cs.tamk.fi>");
         writer = new JSONWriter();
         reader = new JSONReader();
