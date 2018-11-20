@@ -8,11 +8,10 @@ import java.util.LinkedHashMap;
  * Example how JSONFileData writes JSONObject to .json file:
  * <pre>
  * {
- *   "address": {
- *     "streetAddress": "21 2nd Street",
- *     "city": "New York",
- *     "state": "NY",
- *     "postalCode": "10021-3100"
+ *   "emailAddresses": {
+ *     "school": "example.email@tamk.fi",
+ *     "personal": "example.last@hotmail.com",
+ *     "hobby": "example@gmail.fi"
  *   }
  * }
  *</pre>

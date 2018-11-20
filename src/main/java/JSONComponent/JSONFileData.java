@@ -8,8 +8,32 @@ import java.util.List;
 
 /**
  * Holds information of the JSON file. User can insert JSONItems, JSONArrays and JSONObjects to this class.
- * Used to make JSONComponents to String format for the printer to write.
- *
+ * Used to make JSONComponents to String format for the printer to write.<br><br>
+ * Example how JSONFileData containing JSONItems, JSONObject and JSONArray is written to .json file:
+ *<pre>
+ * {
+ *   "name": "Tuukka",
+ *   "city": "tre",
+ *   "age": 21,
+ *   "alive": true,
+ *   "willToLive": null,
+ *   "emailAddresses": {
+ *     "school": "example.email@tamk.fi",
+ *     "personal": "example.last@hotmail.com",
+ *     "hobby": "example@gmail.fi"
+ *   },
+ *   "PhoneNumbers": [
+ *     {
+ *       "type": "work",
+ *       "number": 654123
+ *     },
+ *     {
+ *       "type": "mobile",
+ *       "number": 12123123
+ *     }
+ *   ]
+ * }
+ * </pre>
  * @author      Tuukka Juusela
  * @version     2018.1116
  * @since       1.8

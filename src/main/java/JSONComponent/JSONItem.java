@@ -6,8 +6,10 @@ package JSONComponent;
  * Example how JSONFileData writes JSONItems to .json file:
  *<pre>
  * {
- *  "firstName": "John",
- *  "lastName": "Smith"
+ *   "name": "Tuukka",
+ *   "city": "tre",
+ *   "age": 21,
+ *   "alive": true
  * }
  *</pre>
  * @author      Tuukka Juusela
