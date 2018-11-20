@@ -9,7 +9,7 @@ import JSONComponent.*;
  * @version     2018.1116
  * @since       1.8
  */
-class JSONReader {
+public class JSONReader {
     /**
      * Reads file's lines to ArrayList of Strings.
      * @param file to read.
