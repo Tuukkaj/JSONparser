@@ -6,6 +6,16 @@ import java.util.LinkedHashMap;
  * JSONObject can store JSONItems, JSONArrays and other JSONObjects.
  * Used by JSONFileData.
  *
+ * Example how JSONFileData writes JSONObject to .json file:
+ * {
+ *   "address": {
+ *     "streetAddress": "21 2nd Street",
+ *     "city": "New York",
+ *     "state": "NY",
+ *     "postalCode": "10021-3100"
+ *   }
+ * }
+ *
  * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
