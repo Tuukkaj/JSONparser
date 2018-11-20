@@ -7,10 +7,10 @@ import JSONComponent.JSONArray;
 /**
  * Main class of the program. Holds methods for reading and writing JSON files. Also holds methods for creation of
  * JSONComponents that are part of the JSONFileData.
- *
+ *<br><br>
  * Using JSONParser for writing: First create JSONFileData and add any JSONComponent(item, object, array) you want.
  * Give JSONFileData and file to write on to write -method.
- *
+ *<br><br>
  * Using JSONParser for reading: Give file to read to read -method. It returns JSONFileData created from the file.
  * You can access data of the JSONFileData with JSONFileData's methods getComponent and getComponents.
  *
