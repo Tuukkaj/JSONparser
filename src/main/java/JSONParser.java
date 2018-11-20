@@ -15,7 +15,7 @@ import JSONComponent.JSONArray;
  * @version 2018.1911
  * @since 1.8
  */
-class JSONParser {
+public class JSONParser {
     /**
      * JSONReader used to read JSON files.
      */

@@ -13,7 +13,7 @@ import java.io.IOException;
  * @since       1.8
  *
  */
-public class JSONWriter {
+class JSONWriter {
     /**
      * Writes JSONFileData to a file.
      *
