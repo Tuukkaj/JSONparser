@@ -20,7 +20,7 @@ public class JSONReadingTest {
     private static JSONFileData firstTest;
 
     /**
-     * JSONFileData where XXX.json is read using JSONReader.
+     * JSONFileData where test2.json is read using JSONReader.
      */
     private static JSONFileData secondTest;
 
