@@ -6,10 +6,8 @@ import java.util.List;
 
 /**
  * JSONArray can store JSONItem's, JSONObject's and other JSONArray's. Used by JSONFileData.
- * Holds inner class JSONArrayComponent.
- *
- * Example how JSONFileData writes JSONArray to .json file:
- *
+ * Holds inner class JSONArrayComponent.<br><br>Example how JSONFileData writes JSONArray to .json file:
+ *<pre>
  * {
  *   "phoneNumbers": [
  *     {
@@ -22,7 +20,7 @@ import java.util.List;
  *     }
  *   ]
  * }
- *
+ *</pre>
  * @author      Tuukka Juusela
  * @version     2018.1115
  * @since       1.8
