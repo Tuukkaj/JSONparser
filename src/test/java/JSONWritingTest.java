@@ -36,7 +36,7 @@ public class JSONWritingTest {
      * Tests JSONFileData buildToString().
      */
     @Test
-    public void buildToStringTest() {
+    public void buildToStringAll() {
         Assert.assertEquals(fdAll.buildToString(),correctOutPutFDAll);
     }
 
