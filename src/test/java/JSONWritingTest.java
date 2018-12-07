@@ -27,6 +27,8 @@ public class JSONWritingTest {
 
     private static String correctOutPutFDItem;
 
+    private static String correctOutPutFDObject;
+
     /**
      * Expected output of the JSONFileData.
      */
@@ -44,6 +46,12 @@ public class JSONWritingTest {
     public void buildToStringItem() {
         Assert.assertEquals(fdItem.buildToString(), correctOutPutFDItem);
     }
+
+    @Test
+    public void buildToStringObject() {
+        Assert.assertEquals(fdObject.buildToString(), correctOutPutFDObject);
+    }
+
 
     /**
      * Compiles given data to a JSONFile and creates String for expected output.
@@ -103,10 +111,27 @@ public class JSONWritingTest {
         fdItem.add(new JSONItem("StringTest", "test"));
         fdItem.add(new JSONItem("nullTest", null));
 
+
+        fdObject = new JSONFileData();
+
+        fdObject.add(object);
         correctOutPutFDItem ="{\n" +
                 "  \"intTest\": 12,\n" +
                 "  \"StringTest\": \"test\",\n" +
                 "  \"nullTest\": null\n" +
+                "}\n";
+
+        correctOutPutFDObject = "{\n" +
+                "  \"emailAddresses\": {\n" +
+                "    \"school\": \"cool.email@tamk.fi\",\n" +
+                "    \"personal\": \"wow.last@hotmail.com\",\n" +
+                "    \"hobby\": \"hirvi@kaijakoo.fi\",\n" +
+                "    \"DifferentObject\" : {\n" +
+                "      \"Third\": 3,\n" +
+                "      \"Second\": 2,\n" +
+                "      \"first\": 1\n" +
+                "    }\n" +
+                "  }\n" +
                 "}\n";
 
         correctOutPutFDAll = "{\n" +
