@@ -19,6 +19,12 @@ public class JSONWritingTest {
      */
     private static JSONFileData fd;
 
+    private static JSONFileData fdObject;
+
+    private static JSONFileData fdArray;
+
+    private static JSONFileData fdItem;
+
     /**
      * Expected output of the JSONFileData.
      */
