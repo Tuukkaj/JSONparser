@@ -17,7 +17,7 @@ public class JSONWritingTest {
     /**
      * JSONFileData where data is put.
      */
-    private static JSONFileData fd;
+    private static JSONFileData fdAll;
 
     private static JSONFileData fdObject;
 
@@ -25,17 +25,24 @@ public class JSONWritingTest {
 
     private static JSONFileData fdItem;
 
+    private static String correctOutPutFDItem;
+
     /**
      * Expected output of the JSONFileData.
      */
-    private static String correctOutPut;
+    private static String correctOutPutFDAll;
 
     /**
      * Tests JSONFileData buildToString().
      */
     @Test
     public void buildToStringTest() {
-        Assert.assertTrue(fd.buildToString().equals(correctOutPut));
+        Assert.assertTrue(fdAll.buildToString().equals(correctOutPutFDAll));
+    }
+
+    @Test
+    public void buildToStringItem() {
+        Assert.assertEquals(fdItem.buildToString(), correctOutPutFDItem);
     }
 
     /**
@@ -43,19 +50,19 @@ public class JSONWritingTest {
      */
     @BeforeClass
     public static void beforeClass() {
-        fd = new JSONFileData();
-        fd.add(new JSONItem("name", "Tuukka"));
-        fd.add(new JSONItem("city", "tre"));
+        fdAll = new JSONFileData();
+        fdAll.add(new JSONItem("name", "Tuukka"));
+        fdAll.add(new JSONItem("city", "tre"));
 
-        fd.add(new JSONItem("age", 21));
-        fd.add(new JSONItem("alive", true));
-        fd.add(new JSONItem("willToLive", null));
+        fdAll.add(new JSONItem("age", 21));
+        fdAll.add(new JSONItem("alive", true));
+        fdAll.add(new JSONItem("willToLive", null));
 
         JSONObject object = new JSONObject("emailAddresses");
         object.add(new JSONItem("school", "cool.email@tamk.fi"));
         object.add(new JSONItem("personal", "wow.last@hotmail.com"));
         object.add(new JSONItem("hobby", "hirvi@kaijakoo.fi"));
-        fd.add(object);
+        fdAll.add(object);
 
         JSONArray array = new JSONArray("PhoneNumbers");
         ArrayList<JSONItem> mobilePhone = new ArrayList<>();
@@ -70,7 +77,7 @@ public class JSONWritingTest {
         array.add(workPhone);
         array.add(homePhone);
         array.add(mobilePhone);
-        fd.add(array);
+        fdAll.add(array);
 
         JSONObject bigObject = new JSONObject("ObjectInObject");
         JSONObject object3 = new JSONObject("OBJECTINOJBECTINOBJECT");
@@ -81,7 +88,7 @@ public class JSONWritingTest {
         bigObject.add(new JSONItem("firstTest", object));
         bigObject.add(new JSONItem("secondTest", array));
         bigObject.add(new JSONItem("objecterino", object3));
-        fd.add(bigObject);
+        fdAll.add(bigObject);
         ArrayList<JSONItem> JSONItemList = new ArrayList<>();
         JSONItemList.add(new JSONItem("product", "dog"));
         JSONItemList.add(new JSONItem("color", "orange"));
@@ -91,7 +98,18 @@ public class JSONWritingTest {
         petArray.add(new JSONItem("object3", object3));
         array.add(new JSONItem("petArray", petArray));
 
-        correctOutPut = "{\n" +
+        fdItem = new JSONFileData();
+        fdItem.add(new JSONItem("intTest", 12));
+        fdItem.add(new JSONItem("StringTest", "test"));
+        fdItem.add(new JSONItem("nullTest", null));
+
+        correctOutPutFDItem ="{\n" +
+                "  \"intTest\": 12,\n" +
+                "  \"StringTest\": \"test\",\n" +
+                "  \"nullTest\": null\n" +
+                "}\n";
+
+        correctOutPutFDAll = "{\n" +
                 "  \"name\": \"Tuukka\",\n" +
                 "  \"city\": \"tre\",\n" +
                 "  \"age\": 21,\n" +
@@ -186,11 +204,11 @@ public class JSONWritingTest {
     }
 
     /**
-     * Sets String correctOutPut and JSONFileData fd to null.
+     * Sets String correctOutPutFDAll and JSONFileData fdAll to null.
      */
     @AfterClass
     public static void afterClass() {
-        correctOutPut = null;
-        fd = null;
+        correctOutPutFDAll = null;
+        fdAll = null;
     }
 }
