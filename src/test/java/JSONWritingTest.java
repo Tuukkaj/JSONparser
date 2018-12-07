@@ -15,45 +15,72 @@ import java.util.ArrayList;
  */
 public class JSONWritingTest {
     /**
-     * JSONFileData where data is put.
+     * JSONFileData where test data is put.  Used to test everything together.
      */
     private static JSONFileData fdAll;
 
+    /**
+     * JSONFileData where test data is put. Used to test object inside JSONFileData.
+     */
     private static JSONFileData fdObject;
 
+    /**
+     * JSONFileData where test data is put. Used to test array inside JSONFileData.
+     */
     private static JSONFileData fdArray;
 
+    /**
+     * JSONFileData where test data is put. Used to test items inside JSONFileData.
+     */
     private static JSONFileData fdItem;
 
+    /**
+     * Expected output of the JSONFileData with items in it.
+     */
     private static String correctOutPutFDItem;
 
+    /**
+     * Expected output of the JSONFileData with object in it.
+     */
     private static String correctOutPutFDObject;
 
+    /**
+     * Expected output of the JSONFileData with array in it.
+     */
     private static String correctOutPutFDArray;
 
     /**
-     * Expected output of the JSONFileData.
+     * Expected output of the JSONFileData with every type of JSONObject inside it.
      */
     private static String correctOutPutFDAll;
 
     /**
-     * Tests JSONFileData buildToString().
+     * Tests if JSONFileData correctly constructs information correctly with every JSONComponent inside of it.
      */
     @Test
     public void buildToStringAll() {
         Assert.assertEquals(fdAll.buildToString(),correctOutPutFDAll);
     }
 
+    /**
+     * Tests if JSONFileData constructs information correctly if it holds only items.
+     */
     @Test
     public void buildToStringItem() {
         Assert.assertEquals(fdItem.buildToString(), correctOutPutFDItem);
     }
 
+    /**
+     * Tests if JSONFileData constructs information correctly if it holds only object.
+     */
     @Test
     public void buildToStringObject() {
         Assert.assertEquals(fdObject.buildToString(), correctOutPutFDObject);
     }
 
+    /**
+     * Tests if JSONFileData constructs information correctly if it holds only array.
+     */
     @Test
     public void buildToStringArray() {
         Assert.assertEquals(fdArray.buildToString(), correctOutPutFDArray);
