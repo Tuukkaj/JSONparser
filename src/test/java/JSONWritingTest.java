@@ -132,7 +132,7 @@ public class JSONWritingTest {
                 "      \"color\": \"orange\"\n" +
                 "    },\n" +
                 "    {\n" +
-                "      \"object3\" : {\n" +
+                "      \"object3\": {\n" +
                 "        \"Third\": 3,\n" +
                 "        \"Second\": 2,\n" +
                 "        \"first\": 1\n" +
@@ -152,7 +152,7 @@ public class JSONWritingTest {
                 "    \"school\": \"cool.email@tamk.fi\",\n" +
                 "    \"personal\": \"wow.last@hotmail.com\",\n" +
                 "    \"hobby\": \"hirvi@kaijakoo.fi\",\n" +
-                "    \"DifferentObject\" : {\n" +
+                "    \"DifferentObject\": {\n" +
                 "      \"Third\": 3,\n" +
                 "      \"Second\": 2,\n" +
                 "      \"first\": 1\n" +
@@ -170,7 +170,7 @@ public class JSONWritingTest {
                 "    \"school\": \"cool.email@tamk.fi\",\n" +
                 "    \"personal\": \"wow.last@hotmail.com\",\n" +
                 "    \"hobby\": \"hirvi@kaijakoo.fi\",\n" +
-                "    \"DifferentObject\" : {\n" +
+                "    \"DifferentObject\": {\n" +
                 "      \"Third\": 3,\n" +
                 "      \"Second\": 2,\n" +
                 "      \"first\": 1\n" +
@@ -190,13 +190,13 @@ public class JSONWritingTest {
                 "      \"number\": 987654321\n" +
                 "    },\n" +
                 "    {\n" +
-                "      \"petArray\" : [\n" +
+                "      \"petArray\": [\n" +
                 "        {\n" +
                 "          \"product\": 1,\n" +
                 "          \"color\": \"orange\"\n" +
                 "        },\n" +
                 "        {\n" +
-                "          \"object3\" : {\n" +
+                "          \"object3\": {\n" +
                 "            \"Third\": 3,\n" +
                 "            \"Second\": 2,\n" +
                 "            \"first\": 1\n" +
@@ -206,17 +206,17 @@ public class JSONWritingTest {
                 "    }\n" +
                 "  ],\n" +
                 "  \"ObjectInObject\": {\n" +
-                "    \"firstTest\" : {\n" +
+                "    \"firstTest\": {\n" +
                 "      \"school\": \"cool.email@tamk.fi\",\n" +
                 "      \"personal\": \"wow.last@hotmail.com\",\n" +
                 "      \"hobby\": \"hirvi@kaijakoo.fi\",\n" +
-                "      \"DifferentObject\" : {\n" +
+                "      \"DifferentObject\": {\n" +
                 "        \"Third\": 3,\n" +
                 "        \"Second\": 2,\n" +
                 "        \"first\": 1\n" +
                 "      }\n" +
                 "    },\n" +
-                "    \"secondTest\" : [\n" +
+                "    \"secondTest\": [\n" +
                 "      {\n" +
                 "        \"type\": \"work\",\n" +
                 "        \"number\": 654123\n" +
@@ -230,13 +230,13 @@ public class JSONWritingTest {
                 "        \"number\": 987654321\n" +
                 "      },\n" +
                 "      {\n" +
-                "        \"petArray\" : [\n" +
+                "        \"petArray\": [\n" +
                 "          {\n" +
                 "            \"product\": 1,\n" +
                 "            \"color\": \"orange\"\n" +
                 "          },\n" +
                 "          {\n" +
-                "            \"object3\" : {\n" +
+                "            \"object3\": {\n" +
                 "              \"Third\": 3,\n" +
                 "              \"Second\": 2,\n" +
                 "              \"first\": 1\n" +
@@ -245,7 +245,7 @@ public class JSONWritingTest {
                 "        ]\n" +
                 "      }\n" +
                 "    ],\n" +
-                "    \"objecterino\" : {\n" +
+                "    \"objecterino\": {\n" +
                 "      \"Third\": 3,\n" +
                 "      \"Second\": 2,\n" +
                 "      \"first\": 1\n" +
