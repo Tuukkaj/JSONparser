@@ -260,6 +260,12 @@ public class JSONWritingTest {
     @AfterClass
     public static void afterClass() {
         correctOutPutFDAll = null;
+        correctOutPutFDArray = null;
+        correctOutPutFDObject = null;
+        correctOutPutFDItem = null;
         fdAll = null;
+        fdArray = null;
+        fdObject = null;
+        fdItem = null;
     }
 }
