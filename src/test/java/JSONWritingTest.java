@@ -29,6 +29,8 @@ public class JSONWritingTest {
 
     private static String correctOutPutFDObject;
 
+    private static String correctOutPutFDArray;
+
     /**
      * Expected output of the JSONFileData.
      */
@@ -50,6 +52,11 @@ public class JSONWritingTest {
     @Test
     public void buildToStringObject() {
         Assert.assertEquals(fdObject.buildToString(), correctOutPutFDObject);
+    }
+
+    @Test
+    public void buildToStringArray() {
+        Assert.assertEquals(fdArray.buildToString(), correctOutPutFDArray);
     }
 
 
@@ -113,8 +120,27 @@ public class JSONWritingTest {
 
 
         fdObject = new JSONFileData();
-
         fdObject.add(object);
+
+        fdArray = new JSONFileData();
+        fdArray.add(petArray);
+
+        correctOutPutFDArray = "{\n" +
+                "  \"petArray\": [\n" +
+                "    {\n" +
+                "      \"product\": 1,\n" +
+                "      \"color\": \"orange\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"object3\" : {\n" +
+                "        \"Third\": 3,\n" +
+                "        \"Second\": 2,\n" +
+                "        \"first\": 1\n" +
+                "      }\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}\n";
+
         correctOutPutFDItem ="{\n" +
                 "  \"intTest\": 12,\n" +
                 "  \"StringTest\": \"test\",\n" +
