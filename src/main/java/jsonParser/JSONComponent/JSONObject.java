@@ -86,9 +86,9 @@ public class JSONObject extends JSONComponent {
 
             if(table.get(s) instanceof JSONComponent) {
                 if (i < table.size() - 1) {
-                    b.append("\"" + s + "\" " + ((JSONComponent) table.get(s)).buildToString() + ",\n");
+                    b.append("\"" + s + "\"" + ((JSONComponent) table.get(s)).buildToString() + ",\n");
                 } else {
-                    b.append("\"" + s + "\" " +((JSONComponent) table.get(s)).buildToString() + "\n");
+                    b.append("\"" + s + "\"" +((JSONComponent) table.get(s)).buildToString() + "\n");
                 }
 
             } else if(table.get(s) instanceof  String) {

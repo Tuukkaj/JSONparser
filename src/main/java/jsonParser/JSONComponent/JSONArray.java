@@ -193,9 +193,9 @@ public class JSONArray extends JSONComponent{
             for(String s: map.keySet()) {
                 if(map.get(s) instanceof JSONComponent) {
                     if (i < map.size() - 1) {
-                        builder.append("\"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + ",\n");
+                        builder.append("\"" + s + "\"" + ((JSONComponent) map.get(s)).buildToString() + ",\n");
                     } else {
-                        builder.append("\"" + s + "\" " + ((JSONComponent) map.get(s)).buildToString() + "\n");
+                        builder.append("\"" + s + "\"" + ((JSONComponent) map.get(s)).buildToString() + "\n");
                     }
                 } else if(map.get(s) instanceof String) {
                     if (i < map.size() - 1) {
